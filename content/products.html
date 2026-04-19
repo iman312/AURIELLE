@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shop — Aurielle Fine Jewelry</title>
+  <link rel="stylesheet" href="../style/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- ── HEADER ─────────────────────────────────────────────── -->
+  <header class="header dark" id="header">
+    <div class="container">
+      <nav class="nav">
+
+        <a href="../index.html" class="nav-logo">
+          <img src="../images/logo.png" alt="Aurielle logo" />
+          <div class="nav-logo-text">
+            <span class="brand">AURIELLE</span>
+            <span class="brand-sub">Fine Jewelry</span>
+          </div>
+        </a>
+
+        <ul class="nav-links">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="products.html" class="active">Shop</a></li>
+          <li><a href="../index.html#categories">Collections</a></li>
+          <li><a href="../index.html#footer">Contact</a></li>
+        </ul>
+
+        <div class="nav-icons">
+          <a href="order.html" title="Cart" style="position:relative;">
+            <i class="fa-regular fa-bag-shopping"></i>
+            <span id="cartCount" style="position:absolute;top:-6px;right:-8px;background:var(--gold);color:var(--black);font-size:0.55rem;width:16px;height:16px;border-radius:50%;display:flex;align-items:center;justify-content:center;"></span>
+          </a>
+        </div>
+
+        <div class="nav-auth" id="navAuth">
+          <a href="login.html">Login</a>
+          <a href="register.html" class="nav-auth-primary">Register</a>
+        </div>
+
+        <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+      </nav>
+    </div>
+  </header>
+
+
+  <!-- ── PAGE HERO ──────────────────────────────────────────── -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="page-hero-content">
+        <h1 class="page-hero-title">The Collection</h1>
+        <p class="page-hero-sub">Timeless pieces, carefully curated</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ── BREADCRUMB ─────────────────────────────────────────── -->
+  <div class="breadcrumb">
+    <div class="container">
+      <nav aria-label="breadcrumb">
+        <a href="../index.html">Home</a>
+        <span class="sep">›</span>
+        <span>Shop</span>
+      </nav>
+    </div>
+  </div>
+
+
+  <!-- ── CATEGORY FILTER BAR ────────────────────────────────── -->
+  <div class="filter-bar">
+    <div class="container">
+      <div class="filter-bar-inner">
+        <button class="filter-btn active" data-cat="all">All</button>
+        <button class="filter-btn" data-cat="rings">Rings</button>
+        <button class="filter-btn" data-cat="necklaces">Necklaces</button>
+        <button class="filter-btn" data-cat="bracelets">Bracelets</button>
+        <button class="filter-btn" data-cat="earrings">Earrings</button>
+        <button class="filter-btn" data-cat="brooches">Brooches</button>
+        <span class="filter-count"><span id="productCount">12</span> products</span>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ── SHOP LAYOUT ────────────────────────────────────────── -->
+  <section class="shop">
+    <div class="container">
+      <div class="shop-layout">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+          <h3 class="sidebar-title">Refine</h3>
+
+          <div class="filter-group">
+            <h4>Material</h4>
+            <label class="filter-option"><input type="checkbox" class="sidebar-filter" data-filter="material" value="Yellow Gold" /><label>Yellow Gold</label></label>
+            <label class="filter-option"><input type="checkbox" class="sidebar-filter" data-filter="material" value="Rose Gold" /><label>Rose Gold</label></label>
+            <label class="filter-option"><input type="checkbox" class="sidebar-filter" data-filter="material" value="White Gold" /><label>White Gold</label></label>
+            <label class="filter-option"><input type="checkbox" class="sidebar-filter" data-filter="material" value="Silver" /><label>Silver</label></label>
+            <label class="filter-option"><input type="checkbox" class="sidebar-filter" data-filter="material" value="Platinum" /><label>Platinum</label></label>
+          </div>
+
+          <div class="filter-group">
+            <h4>Price Range ($)</h4>
+            <div class="price-range">
+              <input type="number" id="priceMin" placeholder="Min" min="0" />
+              <span>—</span>
+              <input type="number" id="priceMax" placeholder="Max" min="0" />
+            </div>
+          </div>
+
+          <button class="btn btn-primary" id="applyFilters" style="width:100%;margin-top:0.5rem;">Apply</button>
+        </aside>
+
+        <!-- Main -->
+        <div class="shop-main">
+          <div class="shop-header">
+            <p class="shop-count">Showing <strong id="productCount2"></strong> products</p>
+            <div class="shop-sort">
+              <label for="sortSelect">Sort by</label>
+              <select id="sortSelect">
+                <option value="featured">Featured</option>
+                <option value="price-asc">Price: Low → High</option>
+                <option value="price-desc">Price: High → Low</option>
+                <option value="newest">Newest First</option>
+                <option value="bestseller">Bestsellers</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Products are rendered here by products.js -->
+          <div class="shop-grid" id="shopGrid">
+            <p style="grid-column:1/-1;text-align:center;padding:4rem;color:var(--gray);">Loading products…</p>
+          </div>
+
+          <nav class="pagination" aria-label="Pages">
+            <button class="page-btn"><i class="fa-regular fa-chevron-left"></i></button>
+            <button class="page-btn active">1</button>
+            <button class="page-btn">2</button>
+            <button class="page-btn">3</button>
+            <button class="page-btn"><i class="fa-regular fa-chevron-right"></i></button>
+          </nav>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ── FOOTER ─────────────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand footer-col">
+          <span class="logo-word">AURIELLE</span>
+          <span class="logo-sub">Fine Jewelry</span>
+          <p class="footer-desc">Handcrafted jewelry for those who believe beauty lives in the details.</p>
+          <div class="footer-social">
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-pinterest"></i></a>
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="products.html">Shop</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="register.html">Register</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Customer Care</h4>
+          <ul>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Shipping & Returns</a></li>
+            <li><a href="#">Size Guide</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <div class="footer-contact-item"><i class="fa-regular fa-envelope"></i><span>hello@aurielle.com</span></div>
+          <div class="footer-contact-item"><i class="fa-regular fa-phone"></i><span>+1 (800) 555-0192</span></div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; 2025 Aurielle Fine Jewelry.</p>
+        <div class="footer-legal"><a href="#">Privacy</a><a href="#">Terms</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../javascript/products.js"></script>
+  <script src="../javascript/auth.js"></script>
+  <script src="../javascript/validation.js"></script>
+  <script>
+    // Sync second count display
+    const obs = new MutationObserver(() => {
+      const c2 = document.getElementById("productCount2");
+      const c1 = document.getElementById("productCount");
+      if (c2 && c1) c2.textContent = c1.textContent;
+    });
+    const c1 = document.getElementById("productCount");
+    if (c1) obs.observe(c1, { childList: true });
+
+    // Pagination toggle
+    document.querySelectorAll(".page-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        if (!btn.querySelector("i")) {
+          document.querySelectorAll(".page-btn").forEach(b => b.classList.remove("active"));
+          btn.classList.add("active");
+        }
+      });
+    });
+
+    // Read ?cat= from URL and pre-select filter
+    window.addEventListener("DOMContentLoaded", () => {
+      const params = new URLSearchParams(window.location.search);
+      const cat = params.get("cat");
+      if (cat) {
+        const btn = document.querySelector(`.filter-btn[data-cat="${cat}"]`);
+        if (btn) btn.click();
+      }
+    });
+  </script>
+
+</body>
+</html>

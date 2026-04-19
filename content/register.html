@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register — Aurielle</title>
+  <link rel="stylesheet" href="../style/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- ── HEADER ─────────────────────────────────────────────── -->
+  <header class="header dark" id="header">
+    <div class="container">
+      <nav class="nav">
+        <a href="../index.html" class="nav-logo">
+          <img src="../images/logo.png" alt="Aurielle logo" />
+          <div class="nav-logo-text">
+            <span class="brand">AURIELLE</span>
+            <span class="brand-sub">Fine Jewelry</span>
+          </div>
+        </a>
+        <ul class="nav-links">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="products.html">Shop</a></li>
+        </ul>
+        <div class="nav-auth">
+          <a href="login.html">Login</a>
+          <a href="register.html" class="nav-auth-primary" style="border-color:var(--gold);">Register</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+
+  <!-- ── REGISTER FORM ──────────────────────────────────────── -->
+  <main class="auth-page">
+    <div class="auth-box" style="width:min(560px,92%);">
+
+      <div class="auth-logo">
+        <img src="../images/logo.png" alt="Aurielle" />
+        <h1>AURIELLE</h1>
+        <p>Fine Jewelry</p>
+      </div>
+
+      <h2 class="auth-title">Create an account</h2>
+      <p class="auth-sub">Join Aurielle and enjoy a personalised experience</p>
+
+      <div id="registerAlert" class="alert" role="alert"></div>
+
+      <form id="registerForm" novalidate>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" placeholder="wissam" autocomplete="given-name" required />
+            <span class="field-msg" id="firstNameMsg"></span>
+          </div>
+          <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" placeholder="Rami" autocomplete="family-name" required />
+            <span class="field-msg" id="lastNameMsg"></span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="regEmail">Email Address</label>
+          <input type="email" id="regEmail" placeholder="your@email.com" autocomplete="email" required />
+          <span class="field-msg" id="regEmailMsg"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="regPhone">Phone Number</label>
+          <input type="tel" id="regPhone" placeholder="+213 6 12 34 56 78" autocomplete="tel" required />
+          <span class="field-msg" id="regPhoneMsg"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="regPassword">Password</label>
+          <div class="password-wrapper" style="position: relative;">
+         <input type="password" id="regPassword" placeholder="Min 8 chars,uppercase, number, symbol" autocomplete="new-password" required /">
+         <button type="button" id="togglePassword" style="position: absolute; right: 10px; top: 5px;">Show</button>
+         </div>
+          <span class="field-msg" id="regPasswordMsg"></span>
+        </div> 
+
+        <div class="form-group">
+          <label for="confirmPassword">Confirm Password</label>
+          <input type="password" id="confirmPassword" placeholder="Repeat your password" autocomplete="new-password" required />
+          <span class="field-msg" id="confirmMsg"></span>
+        </div>
+
+    
+        <div style="margin-bottom:1.5rem;font-size:0.78rem;color:rgba(250,248,244,0.35);line-height:1.7;">
+          By creating an account you agree to our
+          <a href="#" style="color:var(--gold);">Terms of Service</a> and
+          <a href="#" style="color:var(--gold);">Privacy Policy</a>.
+        </div>
+
+        <button type="submit" class="btn btn-primary form-submit">Create Account</button>
+
+      </form>
+
+      <div class="auth-footer">
+        Already have an account? <a href="login.html">Sign in</a>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="../javascript/auth.js"></script>
+  <script src="../javascript/validation.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login — Aurielle</title>
+  <link rel="stylesheet" href="../style/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- ── HEADER ─────────────────────────────────────────────── -->
+  <header class="header dark" id="header">
+    <div class="container">
+      <nav class="nav">
+        <a href="../index.html" class="nav-logo">
+          <img src="../images/logo.png" alt="Aurielle logo" />
+          <div class="nav-logo-text">
+            <span class="brand">AURIELLE</span>
+            <span class="brand-sub">Fine Jewelry</span>
+          </div>
+        </a>
+        <ul class="nav-links">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="products.html">Shop</a></li>
+        </ul>
+        <div class="nav-auth">
+          <a href="login.html" class="active" style="color:var(--gold);">Login</a>
+          <a href="register.html" class="nav-auth-primary">Register</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+
+  <!-- ── LOGIN FORM ─────────────────────────────────────────── -->
+  <main class="auth-page">
+    <div class="auth-box">
+
+      <div class="auth-logo">
+        <img src="../images/logo.png" alt="Aurielle" />
+        <h1>AURIELLE</h1>
+        <p>Fine Jewelry</p>
+      </div>
+
+      <h2 class="auth-title">Welcome back</h2>
+      <p class="auth-sub">Sign in to your account to continue</p>
+
+      <!-- Alert (shown on error / success) -->
+      <div id="loginAlert" class="alert" role="alert"></div>
+
+      <form id="loginForm" novalidate>
+
+        <div class="form-group">
+          <label for="loginEmail">Email Address</label>
+          <input type="email" id="loginEmail" placeholder="your@email.com" autocomplete="email" required />
+          <span class="field-msg" id="loginEmailMsg"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="loginPassword">Password</label>
+          <div class="password-wrapper" style="position: relative;">
+         <input type="password" id="regPassword" placeholder="••••••••" autocomplete="current-password" required /">
+         <button type="button" id="togglePassword" style="position: absolute; right: 10px; top: 5px;">🙈</button>
+          <span class="field-msg" id="loginPasswordMsg"></span>
+        </div>
+         
+
+        <div style="text-align:right;margin-bottom:1.5rem;">
+          <a href="#" style="font-size:0.78rem;color:var(--gold);">Forgot password?</a>
+        </div>
+
+        <button type="submit" class="btn btn-primary form-submit">Sign In</button>
+
+      </form>
+
+      <div class="auth-footer">
+        Don't have an account? <a href="register.html">Create one</a>
+      </div>
+
+      <!-- Demo credentials hint -->
+      <div style="margin-top:2rem;padding:1rem;border:1px solid rgba(201,168,76,0.15);font-size:0.75rem;color:rgba(250,248,244,0.35);line-height:1.8;">
+        <strong style="color:var(--gold);letter-spacing:0.1em;">DEMO LOGIN</strong><br>
+        Email: <code style="color:rgba(250,248,244,0.5);">sophie@aurielle.com</code><br>
+        Password: <code style="color:rgba(250,248,244,0.5);">Sophie123!</code>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="../javascript/auth.js"></script>
+  <script src="../javascript/validation.js"></script>
+
+</body>
+</html>
