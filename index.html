@@ -30,12 +30,23 @@
         </ul>
 
         <div class="nav-icons">
-          <a href="content/products.html" title="Search"><i class="fa-regular fa-magnifying-glass"></i></a>
-          <a href="content/order.html" title="Cart" style="position:relative;">
-            <i class="fa-regular fa-bag-shopping"></i>
-            <span id="cartCount" style="position:absolute;top:-6px;right:-8px;background:var(--gold);color:var(--black);font-size:0.55rem;width:16px;height:16px;border-radius:50%;display:flex;align-items:center;justify-content:center;"></span>
-          </a>
-        </div>
+  
+  <!-- Search (NEW, but in old position) -->
+        <div class="search-container">
+        <i class="fa-solid fa-magnifying-glass" id="searchIcon"></i>
+  
+  <div class="search-box" id="searchBox">
+    <input type="text" placeholder="Search products..." id="searchInput">
+         </div>
+     </div>
+
+  <!-- Cart -->
+  <a href="content/order.html" title="Cart" style="position:relative;">
+    <i class="fa-solid fa-bag-shopping"></i>
+    <span id="cartCount" style="position:absolute;top:-6px;right:-8px;background:var(--gold);color:var(--black);font-size:0.55rem;width:16px;height:16px;border-radius:50%;display:flex;align-items:center;justify-content:center;"></span>
+  </a>
+
+</div>
 
         <div class="nav-auth" id="navAuth">
           <a href="content/login.html">Login</a>

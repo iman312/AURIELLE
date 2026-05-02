@@ -232,3 +232,49 @@ document.addEventListener("DOMContentLoaded", () => {
   if (document.getElementById("loginForm"))    initLoginValidation();
   if (document.getElementById("orderForm"))    initOrderValidation();
 });
+
+
+  // ── Core validator ──────────────────────────────────────────────
+function validateField(input, rule, msgEl) {
+  const value = input.value.trim();
+
+  if (!value) {
+    showError(input, msgEl, MESSAGES.required);
+    return false;
+  }
+
+  if (rule === "confirmPassword") {
+    const passwordInput = document.getElementById("regPassword");
+    if (value !== passwordInput.value) {
+      showError(input, msgEl, MESSAGES.confirmPassword);
+      return false;
+    }
+    showSuccess(input, msgEl);
+    return true;
+  }
+
+  if (REGEX[rule] && !REGEX[rule].test(value)) {
+    showError(input, msgEl, MESSAGES[rule] || "Invalid input.");
+    return false;
+  }
+
+  // ── Extra expiry checks (month range + not expired) ──
+  if (rule === "expiry") {
+    const [mm, yy] = value.split("/").map(Number);
+    const now = new Date();
+    const currentYear  = now.getFullYear() % 100;
+    const currentMonth = now.getMonth() + 1;
+
+    if (mm < 1 || mm > 12) {
+      showError(input, msgEl, "Month must be 01–12.");
+      return false;
+    }
+    if (yy < currentYear || (yy === currentYear && mm < currentMonth)) {
+      showError(input, msgEl, "Card has expired.");
+      return false;
+    }
+  }
+
+  showSuccess(input, msgEl);
+  return true;
+}

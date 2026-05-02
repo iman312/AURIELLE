@@ -2,6 +2,41 @@
    products.js — Product data + dynamic rendering + filtering
    ============================================ */
 
+  // ── Search box toggle ───────────────────────────────────────────
+  document.addEventListener("DOMContentLoaded", () => {
+  const icon = document.getElementById("searchIcon");
+  const box = document.getElementById("searchBox");
+  const input = document.getElementById("searchInput");
+
+  // Toggle search box
+  icon.addEventListener("click", (e) => {
+    e.stopPropagation(); // prevents immediate closing
+    box.classList.toggle("active");
+  });
+
+  // Close when clicking outside
+  document.addEventListener("click", (e) => {
+    if (!box.contains(e.target)) {
+      box.classList.remove("active");
+    }
+  });
+
+  // Prevent closing when clicking inside input
+  box.addEventListener("click", (e) => {
+    e.stopPropagation();
+  });
+
+  // Search filtering
+  input.addEventListener("keyup", () => {
+    const value = input.value.toLowerCase();
+    const items = document.querySelectorAll(".product");
+
+    items.forEach(item => {
+      const name = item.textContent.toLowerCase();
+      item.style.display = name.includes(value) ? "block" : "none";
+    });
+  });
+});
 // ── Product Data (stored as JS array) ──────────────────────────
 const PRODUCTS = [
   {
