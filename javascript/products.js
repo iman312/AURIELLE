@@ -2,42 +2,7 @@
    products.js — Product data + dynamic rendering + filtering
    ============================================ */
 
-  // ── Search box toggle ───────────────────────────────────────────
-  document.addEventListener("DOMContentLoaded", () => {
-  const icon = document.getElementById("searchIcon");
-  const box = document.getElementById("searchBox");
-  const input = document.getElementById("searchInput");
-
-  // Toggle search box
-  icon.addEventListener("click", (e) => {
-    e.stopPropagation(); // prevents immediate closing
-    box.classList.toggle("active");
-  });
-
-  // Close when clicking outside
-  document.addEventListener("click", (e) => {
-    if (!box.contains(e.target)) {
-      box.classList.remove("active");
-    }
-  });
-
-  // Prevent closing when clicking inside input
-  box.addEventListener("click", (e) => {
-    e.stopPropagation();
-  });
-
-  // Search filtering
-  input.addEventListener("keyup", () => {
-    const value = input.value.toLowerCase();
-    const items = document.querySelectorAll(".product");
-
-    items.forEach(item => {
-      const name = item.textContent.toLowerCase();
-      item.style.display = name.includes(value) ? "block" : "none";
-    });
-  });
-});
-// ── Product Data (stored as JS array) ──────────────────────────
+// ── Product Data ────────────────────────────────────────────────
 const PRODUCTS = [
   {
     id: 1,
@@ -167,7 +132,7 @@ let activeSort     = "featured";
 
 // ── Render products into grid ───────────────────────────────────
 function renderProducts(list) {
-  const grid = document.getElementById("shopGrid");
+  const grid    = document.getElementById("shopGrid");
   const countEl = document.getElementById("productCount");
   if (!grid) return;
 
@@ -180,7 +145,7 @@ function renderProducts(list) {
           ${p.badge ? `<span class="product-badge">${p.badge}</span>` : ""}
           <img src="${p.image}" alt="${p.name}" loading="lazy" />
           <div class="product-overlay">
-            <span onclick="addToOrder(${p.id})">Add to Order &nbsp;→</span>
+            <span onclick="addToOrder(${p.id}, event)">Add to Order &nbsp;→</span>
           </div>
         </div>
         <div class="product-info">
@@ -199,24 +164,20 @@ function renderProducts(list) {
 function applyFilters() {
   let list = [...PRODUCTS];
 
-  // Category filter
   if (activeCategory !== "all") {
     list = list.filter(p => p.category === activeCategory);
   }
 
-  // Sidebar checkbox filters
   const checkedMaterials = getChecked("material");
   if (checkedMaterials.length) {
     list = list.filter(p => checkedMaterials.includes(p.material));
   }
 
-  // Price range
   const minEl = document.getElementById("priceMin");
   const maxEl = document.getElementById("priceMax");
   if (minEl && minEl.value) list = list.filter(p => p.price >= +minEl.value);
   if (maxEl && maxEl.value) list = list.filter(p => p.price <= +maxEl.value);
 
-  // Sort
   const sortEl = document.getElementById("sortSelect");
   if (sortEl) activeSort = sortEl.value;
 
@@ -225,7 +186,7 @@ function applyFilters() {
     case "price-desc": list.sort((a,b) => b.price - a.price); break;
     case "newest":     list.sort((a,b) => b.id - a.id); break;
     case "bestseller": list = list.filter(p => p.badge === "Bestseller").concat(list.filter(p => p.badge !== "Bestseller")); break;
-    default: break; // featured = original order
+    default: break;
   }
 
   renderProducts(list);
@@ -239,7 +200,7 @@ function formatCategory(cat) {
   return cat.charAt(0).toUpperCase() + cat.slice(1);
 }
 
-// ── Category filter buttons (top bar) ──────────────────────────
+// ── Category filter buttons ─────────────────────────────────────
 function initCategoryButtons() {
   document.querySelectorAll(".filter-btn[data-cat]").forEach(btn => {
     btn.addEventListener("click", () => {
@@ -251,53 +212,100 @@ function initCategoryButtons() {
   });
 }
 
-// ── Add to order (saves to localStorage) ───────────────────────
-function addToOrder(id) {
+// ── Cart helpers ─────────────────────────────────────────────────
+function getCart() {
+  return JSON.parse(localStorage.getItem("aurielle_cart") || "[]");
+}
+
+function saveCart(cart) {
+  localStorage.setItem("aurielle_cart", JSON.stringify(cart));
+}
+
+// ── Add to order (FIX: increments qty if item already in cart) ──
+function addToOrder(id, event) {
   const product = PRODUCTS.find(p => p.id === id);
   if (!product) return;
 
-  let cart = JSON.parse(localStorage.getItem("aurielle_cart") || "[]");
-  const exists = cart.find(item => item.id === id);
-  if (!exists) cart.push({ ...product, qty: 1 });
-  localStorage.setItem("aurielle_cart", JSON.stringify(cart));
+  let cart = getCart();
+  const existing = cart.find(item => item.id === id);
+
+  if (existing) {
+    // FIX: was silently ignoring duplicates — now increments quantity
+    existing.qty = (existing.qty || 1) + 1;
+  } else {
+    cart.push({ ...product, qty: 1 });
+  }
+  saveCart(cart);
 
   // Visual feedback
-  const btn = event.target;
-  const original = btn.textContent;
-  btn.textContent = "✓ Added";
-  setTimeout(() => { btn.textContent = original; }, 1800);
+  const btn = event ? event.target : null;
+  if (btn) {
+    const original = btn.textContent;
+    btn.textContent = "✓ Added";
+    setTimeout(() => { btn.textContent = original; }, 1800);
+  }
 
   updateCartCount();
 }
 
+// ── FIX: count total quantity, not just unique items ─────────────
 function updateCartCount() {
-  const cart = JSON.parse(localStorage.getItem("aurielle_cart") || "[]");
+  const cart  = getCart();
+  const total = cart.reduce((sum, item) => sum + (item.qty || 1), 0);
   const badge = document.getElementById("cartCount");
-  if (badge) badge.textContent = cart.length || "";
+  if (badge) badge.textContent = total || "";
+}
+
+// ── Search box toggle (only on pages that have the search UI) ───
+function initSearch() {
+  const icon  = document.getElementById("searchIcon");
+  const box   = document.getElementById("searchBox");
+  const input = document.getElementById("searchInput");
+  if (!icon || !box || !input) return;
+
+  icon.addEventListener("click", (e) => {
+    e.stopPropagation();
+    box.classList.toggle("active");
+    if (box.classList.contains("active")) input.focus();
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!box.contains(e.target) && e.target !== icon) {
+      box.classList.remove("active");
+    }
+  });
+
+  box.addEventListener("click", (e) => e.stopPropagation());
+
+  input.addEventListener("keyup", () => {
+    const value = input.value.toLowerCase();
+    // FIX: use .product-card on shop page, .product-card on index page
+    document.querySelectorAll(".product-card").forEach(item => {
+      item.style.display = item.textContent.toLowerCase().includes(value) ? "" : "none";
+    });
+  });
 }
 
 // ── Init ────────────────────────────────────────────────────────
 document.addEventListener("DOMContentLoaded", () => {
+  initSearch();
+
   if (document.getElementById("shopGrid")) {
     applyFilters();
     initCategoryButtons();
 
-    // Sort listener
     const sortEl = document.getElementById("sortSelect");
     if (sortEl) sortEl.addEventListener("change", applyFilters);
 
-    // Sidebar filter listeners
     document.querySelectorAll(".sidebar-filter").forEach(el => {
       el.addEventListener("change", applyFilters);
     });
 
-    // Price range
-    ["priceMin","priceMax"].forEach(id => {
+    ["priceMin", "priceMax"].forEach(id => {
       const el = document.getElementById(id);
       if (el) el.addEventListener("input", applyFilters);
     });
 
-    // Apply filters button
     const applyBtn = document.getElementById("applyFilters");
     if (applyBtn) applyBtn.addEventListener("click", applyFilters);
   }

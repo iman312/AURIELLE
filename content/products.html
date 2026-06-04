@@ -30,9 +30,17 @@
         </ul>
 
         <div class="nav-icons">
+          <!-- FIX: search icon + collapsible search box restored -->
+          <div class="search-container">
+            <i class="fa-solid fa-magnifying-glass" id="searchIcon" style="cursor:pointer;"></i>
+            <div class="search-box" id="searchBox">
+              <input type="text" placeholder="Search products..." id="searchInput" />
+            </div>
+          </div>
+          <!-- FIX: changed fa-regular to fa-solid so the bag icon renders correctly -->
           <a href="order.html" title="Cart" style="position:relative;">
-            <i class="fa-regular fa-bag-shopping"></i>
-            <span id="cartCount" style="position:absolute;top:-6px;right:-8px;background:var(--gold);color:var(--black);font-size:0.55rem;width:16px;height:16px;border-radius:50%;display:flex;align-items:center;justify-content:center;"></span>
+            <i class="fa-solid fa-bag-shopping"></i>
+            <span id="cartCount" style="position:absolute;top:-6px;right:-8px;background:var(--gold);color:var(--black);font-size:0.55rem;width:16px;height:16px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:600;"></span>
           </a>
         </div>
 

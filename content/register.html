@@ -69,28 +69,51 @@
           <span class="field-msg" id="regEmailMsg"></span>
         </div>
 
+        <!-- FIX: maxlength="10" + inputmode="numeric" enforces 10-digit limit -->
         <div class="form-group">
           <label for="regPhone">Phone Number</label>
-          <input type="tel" id="regPhone" placeholder="+213 6 12 34 56 78" autocomplete="tel" required />
+          <input type="tel" id="regPhone" placeholder="0612345678"
+                 autocomplete="tel" maxlength="10" inputmode="numeric"
+                 pattern="[0-9]{10}" required />
           <span class="field-msg" id="regPhoneMsg"></span>
         </div>
 
+        <!-- FIX: updated placeholder to reflect new 6-char min, no uppercase req -->
         <div class="form-group">
           <label for="regPassword">Password</label>
-          <div class="password-wrapper" style="position: relative;">
-         <input type="password" id="regPassword" placeholder="Min 8 chars,uppercase, number, symbol" autocomplete="new-password" required /">
-         <button type="button" id="togglePassword" style="position: absolute; right: 10px; top: 5px;">Show</button>
-         </div>
+          <div class="password-wrapper" style="position:relative;">
+            <input type="password" id="regPassword"
+                   placeholder="Min 6 chars, number &amp; symbol"
+                   autocomplete="new-password" required
+                   style="padding-right:2.8rem;" />
+            <button type="button" id="togglePassword"
+                    style="position:absolute;right:10px;top:50%;transform:translateY(-50%);
+                           background:none;border:none;cursor:pointer;font-size:1rem;
+                           color:rgba(250,248,244,0.5);padding:0;line-height:1;">
+              <i class="fa-solid fa-eye"></i>
+            </button>
+          </div>
           <span class="field-msg" id="regPasswordMsg"></span>
-        </div> 
+        </div>
 
+        <!-- FIX: confirm password now has its own toggle button -->
         <div class="form-group">
           <label for="confirmPassword">Confirm Password</label>
-          <input type="password" id="confirmPassword" placeholder="Repeat your password" autocomplete="new-password" required />
+          <div class="password-wrapper" style="position:relative;">
+            <input type="password" id="confirmPassword"
+                   placeholder="Repeat your password"
+                   autocomplete="new-password" required
+                   style="padding-right:2.8rem;" />
+            <button type="button" id="toggleConfirmPassword"
+                    style="position:absolute;right:10px;top:50%;transform:translateY(-50%);
+                           background:none;border:none;cursor:pointer;font-size:1rem;
+                           color:rgba(250,248,244,0.5);padding:0;line-height:1;">
+              <i class="fa-solid fa-eye"></i>
+            </button>
+          </div>
           <span class="field-msg" id="confirmMsg"></span>
         </div>
 
-    
         <div style="margin-bottom:1.5rem;font-size:0.78rem;color:rgba(250,248,244,0.35);line-height:1.7;">
           By creating an account you agree to our
           <a href="#" style="color:var(--gold);">Terms of Service</a> and

@@ -39,7 +39,6 @@ function redirectIfLoggedIn(dest = "../index.html") {
 function registerUser(userData) {
   const allUsers = JSON.parse(localStorage.getItem("aurielle_registered") || "[]");
 
-  // Check email not already taken
   const emailTaken = USERS.find(u => u.email === userData.email)
     || allUsers.find(u => u.email === userData.email);
 
@@ -56,10 +55,8 @@ function registerUser(userData) {
 
 // ── Login ───────────────────────────────────────────────────────
 function loginUser(email, password) {
-  // Check built-in users first
   let user = USERS.find(u => u.email === email && u.password === password);
 
-  // Then check registered users
   if (!user) {
     const registered = JSON.parse(localStorage.getItem("aurielle_registered") || "[]");
     user = registered.find(u => u.email === email && u.password === password);
@@ -75,7 +72,9 @@ function loginUser(email, password) {
 // ── Logout ──────────────────────────────────────────────────────
 function logoutUser() {
   clearSession();
-  window.location.href = "../index.html";
+  // Determine if we're in a subpage (content/) or root
+  const inSubpage = window.location.pathname.includes("/content/");
+  window.location.href = inSubpage ? "../index.html" : "index.html";
 }
 
 // ── Update nav based on session ─────────────────────────────────
@@ -83,6 +82,10 @@ function updateNavAuth() {
   const session = getSession();
   const authNav = document.getElementById("navAuth");
   if (!authNav) return;
+
+  // Determine relative path prefix based on page depth
+  const inSubpage = window.location.pathname.includes("/content/");
+  const prefix = inSubpage ? "" : "content/";
 
   if (session) {
     authNav.innerHTML = `
@@ -95,8 +98,8 @@ function updateNavAuth() {
     `;
   } else {
     authNav.innerHTML = `
-      <a href="content/login.html">Login</a>
-      <a href="content/register.html" class="nav-auth-primary">Register</a>
+      <a href="${prefix}login.html">Login</a>
+      <a href="${prefix}register.html" class="nav-auth-primary">Register</a>
     `;
   }
 }
@@ -107,6 +110,12 @@ function handleLoginSubmit(e) {
   const email    = document.getElementById("loginEmail").value.trim();
   const password = document.getElementById("loginPassword").value;
   const alertEl  = document.getElementById("loginAlert");
+
+  if (!email || !password) {
+    alertEl.className = "alert error";
+    alertEl.textContent = "Please fill in both fields.";
+    return;
+  }
 
   const result = loginUser(email, password);
   if (result.success) {
@@ -124,7 +133,6 @@ function handleRegisterSubmit(e) {
   e.preventDefault();
   const alertEl = document.getElementById("registerAlert");
 
-  // Run final validation check
   if (!window.formIsValid) {
     alertEl.className = "alert error";
     alertEl.textContent = "Please fix the errors in the form before submitting.";

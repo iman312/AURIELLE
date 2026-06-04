@@ -6,6 +6,67 @@
   <title>Order — Aurielle</title>
   <link rel="stylesheet" href="../style/style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    /* ── Cart item quantity controls & remove button ── */
+    .summary-item {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(201,168,76,0.08);
+    }
+    .summary-item img {
+      width: 56px; height: 64px;
+      object-fit: cover; flex-shrink: 0;
+    }
+    .summary-item-info { flex: 1; min-width: 0; }
+    .summary-item-name {
+      font-size: 0.82rem; color: var(--white);
+      margin-bottom: 0.15rem;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .summary-item-cat {
+      font-size: 0.65rem; letter-spacing: 0.1em;
+      color: var(--gray); text-transform: uppercase;
+    }
+    .summary-item-right {
+      display: flex; flex-direction: column;
+      align-items: flex-end; gap: 0.4rem; flex-shrink: 0;
+    }
+    .summary-item-price {
+      color: var(--gold);
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+    }
+    /* Qty stepper */
+    .qty-controls {
+      display: flex; align-items: center; gap: 0.35rem;
+    }
+    .qty-btn {
+      width: 22px; height: 22px;
+      background: rgba(201,168,76,0.15);
+      border: 1px solid rgba(201,168,76,0.3);
+      color: var(--gold); font-size: 0.85rem;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; transition: background 0.2s;
+      padding: 0; line-height: 1;
+    }
+    .qty-btn:hover { background: rgba(201,168,76,0.3); }
+    .qty-value {
+      min-width: 20px; text-align: center;
+      font-size: 0.82rem; color: var(--white);
+    }
+    /* Remove button */
+    .remove-btn {
+      background: none; border: none;
+      color: rgba(250,248,244,0.25);
+      font-size: 0.7rem; cursor: pointer;
+      transition: color 0.2s; padding: 0;
+      letter-spacing: 0.05em;
+    }
+    .remove-btn:hover { color: #e74c3c; }
+  </style>
 </head>
 <body>
 
@@ -50,7 +111,6 @@
         <!-- ── LEFT: Form ─────────────────────────────────── -->
         <div class="order-form">
 
-          <!-- Delivery -->
           <h2 class="order-section-title">Delivery Information</h2>
 
           <form id="orderForm" novalidate>
@@ -76,7 +136,8 @@
 
             <div class="form-group">
               <label for="orderPhone">Phone Number</label>
-              <input type="tel" id="orderPhone" placeholder="+213 6 12 34 56 78" required />
+              <input type="tel" id="orderPhone" placeholder="0612345678"
+                     maxlength="10" inputmode="numeric" pattern="[0-9]{10}" required />
               <span class="field-msg" id="orderPhoneMsg"></span>
             </div>
 
@@ -101,13 +162,10 @@
             <!-- Payment -->
             <h2 class="order-section-title" style="margin-top:2.5rem;">Payment Details</h2>
 
-            <div style="display:flex;gap:0.75rem;margin-bottom:1.5rem;">
+            <div style="display:flex;gap:0.75rem;margin-bottom:1.5rem;align-items:center;">
               <span style="font-size:1.6rem;color:#1a1f71;" title="Visa"><i class="fa-brands fa-cc-visa"></i></span>
               <span style="font-size:1.6rem;color:#eb001b;" title="Mastercard"><i class="fa-brands fa-cc-mastercard"></i></span>
               <span style="font-size:1.6rem;color:#003087;" title="PayPal"><i class="fa-brands fa-cc-paypal"></i></span>
-              <span style="font-size:1.6rem;color:#1a1f71;" title="CIB Card"> <img src="images/cib.png" alt="CIB"></span>
-              <span style="font-size:1.6rem;color:#eb001b;" title="Edahabia Card"><img src="images/edahabia.png" alt="Edahabia"></span>
-
             </div>
 
             <div class="form-group">
@@ -122,7 +180,6 @@
                 <input type="text" id="cardExpiry" placeholder="08/27" maxlength="5" required />
                 <span class="field-msg" id="cardExpiryMsg"></span>
               </div>
-              
               <div class="form-group">
                 <label for="cardCvv">CVV</label>
                 <input type="text" id="cardCvv" placeholder="123" maxlength="4" required />
@@ -131,7 +188,7 @@
             </div>
 
             <button type="submit" class="btn btn-primary" style="width:100%;margin-top:1rem;font-size:0.8rem;">
-              Place Order &nbsp; <i class="fa-light fa-cart-shopping"></i>
+              Place Order &nbsp;<i class="fa-solid fa-bag-shopping"></i>
             </button>
 
           </form>
@@ -142,8 +199,10 @@
         <aside class="order-summary" id="orderSummary">
           <h3>Order Summary</h3>
           <div id="summaryItems">
-            <!-- Populated by JS from localStorage cart -->
-            <p style="color:rgba(250,248,244,0.35);font-size:0.85rem;">Your cart is empty.<br><a href="products.html" style="color:var(--gold);">Browse the collection →</a></p>
+            <p style="color:rgba(250,248,244,0.35);font-size:0.85rem;">
+              Your cart is empty.<br>
+              <a href="products.html" style="color:var(--gold);">Browse the collection →</a>
+            </p>
           </div>
           <div class="summary-totals" id="summaryTotals" style="display:none;">
             <div class="summary-row"><span>Subtotal</span><span id="subtotal">$0</span></div>
@@ -197,17 +256,30 @@
   <script src="../javascript/auth.js"></script>
   <script src="../javascript/validation.js"></script>
   <script>
-    // Load cart from localStorage and render summary
-    document.addEventListener("DOMContentLoaded", () => {
-      const cart = JSON.parse(localStorage.getItem("aurielle_cart") || "[]");
+    /* ── Cart helpers ──────────────────────────────────────────── */
+    function getCart()       { return JSON.parse(localStorage.getItem("aurielle_cart") || "[]"); }
+    function saveCart(cart)  { localStorage.setItem("aurielle_cart", JSON.stringify(cart)); }
+
+    /* ── Re-render the entire summary panel ────────────────────── */
+    function renderSummary() {
+      const cart     = getCart();
       const itemsEl  = document.getElementById("summaryItems");
       const totalsEl = document.getElementById("summaryTotals");
 
-      if (cart.length === 0) return;
+      if (cart.length === 0) {
+        itemsEl.innerHTML = `
+          <p style="color:rgba(250,248,244,0.35);font-size:0.85rem;">
+            Your cart is empty.<br>
+            <a href="products.html" style="color:var(--gold);">Browse the collection →</a>
+          </p>`;
+        totalsEl.style.display = "none";
+        return;
+      }
 
       let subtotal = 0;
       itemsEl.innerHTML = cart.map(item => {
-        subtotal += item.price * (item.qty || 1);
+        const lineTotal = item.price * (item.qty || 1);
+        subtotal += lineTotal;
         return `
           <div class="summary-item">
             <img src="${item.image}" alt="${item.name}" />
@@ -215,9 +287,20 @@
               <p class="summary-item-name">${item.name}</p>
               <p class="summary-item-cat">${item.category}</p>
             </div>
-            <span class="summary-item-price">$${item.price.toLocaleString()}</span>
-          </div>
-        `;
+            <div class="summary-item-right">
+              <span class="summary-item-price">$${lineTotal.toLocaleString()}</span>
+              <!-- FIX: qty stepper -->
+              <div class="qty-controls">
+                <button class="qty-btn" onclick="changeQty(${item.id}, -1)" aria-label="Decrease">−</button>
+                <span class="qty-value">${item.qty || 1}</span>
+                <button class="qty-btn" onclick="changeQty(${item.id}, +1)" aria-label="Increase">+</button>
+              </div>
+              <!-- FIX: remove button -->
+              <button class="remove-btn" onclick="removeItem(${item.id})">
+                <i class="fa-solid fa-xmark"></i> Remove
+              </button>
+            </div>
+          </div>`;
       }).join("");
 
       const tax   = Math.round(subtotal * 0.08);
@@ -227,8 +310,30 @@
       document.getElementById("tax").textContent      = `$${tax.toLocaleString()}`;
       document.getElementById("total").textContent    = `$${total.toLocaleString()}`;
       totalsEl.style.display = "block";
+    }
 
-      // Pre-fill form if logged in
+    /* ── FIX: increase / decrease quantity ─────────────────────── */
+    function changeQty(id, delta) {
+      let cart = getCart();
+      const item = cart.find(i => i.id === id);
+      if (!item) return;
+      item.qty = Math.max(1, (item.qty || 1) + delta);
+      saveCart(cart);
+      renderSummary();
+    }
+
+    /* ── FIX: remove an item entirely ──────────────────────────── */
+    function removeItem(id) {
+      let cart = getCart().filter(i => i.id !== id);
+      saveCart(cart);
+      renderSummary();
+    }
+
+    /* ── Init ───────────────────────────────────────────────────── */
+    document.addEventListener("DOMContentLoaded", () => {
+      renderSummary();
+
+      // Pre-fill delivery fields if logged in
       const session = JSON.parse(localStorage.getItem("aurielle_session") || "null");
       if (session) {
         const fn = document.getElementById("orderFirstName");
