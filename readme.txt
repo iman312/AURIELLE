@@ -61,8 +61,8 @@ Built with HTML5, CSS3, and vanilla JavaScript (no frameworks).
 ── Group Members ────────────────────────────
    Ramdani sihem
    Makhloufi lynda
-   roumaissa
-   lyna
+   Halil romaissa
+   Halil lyna
 
 ── Teachers ──────────────────────────────────
   Mme. Bousnina / Melle Moudir / Melle Yesli
