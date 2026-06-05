@@ -6,124 +6,405 @@
 const PRODUCTS = [
   {
     id: 1,
-    name: "Eternal Rose Ring",
+    name: "Infinito",
     category: "rings",
-    material: "Rose Gold",
-    price: 320,
+    material: "Yellow Gold",
+    price: 400,
     badge: "New",
-    image: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=600&q=80",
-    description: "Handcrafted 18k rose gold ring with diamond accents."
+    image: "../images/ring1.png",
+    description: "null"
   },
   {
     id: 2,
-    name: "Soleil Diamond Necklace",
-    category: "necklaces",
-    material: "Yellow Gold",
-    price: 580,
-    badge: "Bestseller",
-    image: "https://images.unsplash.com/photo-1573408301185-9519f94816b5?w=600&q=80",
-    description: "Radiant sun pendant set with brilliant-cut diamonds."
+    name: "Five-petal Hibiscus Flower",
+    category: "earrings",
+    material: "White Gold",
+    price: 380,
+    badge: "New",
+    image: "../images/earring1.png",
+    description: "These White Flower Earrings Are the Prettiest Thing You'll See Today"
   },
   {
     id: 3,
-    name: "Cascade Pearl Earrings",
-    category: "earrings",
-    material: "Silver",
-    price: 245,
-    badge: null,
-    image: "https://images.unsplash.com/photo-1611085583191-a3b181a88401?w=600&q=80",
-    description: "Cascading freshwater pearls on sterling silver hooks."
+    name: "Infinito",
+    category: "necklaces",
+    material: "Yellow gold",
+    price: 920,
+    badge: "limited",
+    image: "../images/collier1.png",
+    description: "Calm, minimal jewellery designed for everyday comfort"
   },
   {
     id: 4,
-    name: "Aurora Gold Bracelet",
+    name: "Lucky Clover Braclet ",
     category: "bracelets",
     material: "Yellow Gold",
-    price: 410,
-    badge: "Limited",
-    image: "https://images.unsplash.com/photo-1506630448388-4e683c67ddb0?w=600&q=80",
-    description: "Delicate 18k yellow gold chain bracelet with aurora motif."
+    price: 1200,
+    badge: "sale",
+    image: "../images/braclet1.png",
+    description: "real gold plated lucky leaf shell pearls braclet "
   },
   {
     id: 5,
-    name: "Midnight Sapphire Ring",
-    category: "rings",
-    material: "White Gold",
-    price: 695,
-    badge: null,
-    image: "https://images.unsplash.com/photo-1588444837495-c6cfeb53f32d?w=600&q=80",
-    description: "Deep blue sapphire set in a white gold pavé band."
+    name: "Piranha Flora",
+    category: "brooches",
+    material: "Rose Gold",
+    price: 40,
+    badge: "Sale",
+    image: "../images/brooche1.png",
+    description: "AESTHETIC ALERT ‼️ THESE ARE PERFECT FOR THE SUMMER ☀️💗"
   },
   {
     id: 6,
-    name: "Lumière Pendant",
-    category: "necklaces",
-    material: "Rose Gold",
-    price: 185,
-    badge: null,
-    image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600&q=80",
-    description: "Minimalist rose gold pendant — effortless everyday elegance."
+    name: "Gold wedding ring",
+    category: "rings",
+    material: "Yellow Gold",
+    price: 3900,
+    badge: "new",
+    image: "../images/ring2.png",
+    description: "The perfect twist on tradition"
   },
   {
     id: 7,
-    name: "Étoile Diamond Earrings",
+    name: "Bow Earrings",
     category: "earrings",
-    material: "White Gold",
-    price: 870,
+    material: "Yellow Gold",
+    price: 170,
     badge: "New",
-    image: "https://images.unsplash.com/photo-1553691927-a04e6a24a1cc?w=600&q=80",
-    description: "Star-shaped stud earrings with pavé diamond setting."
+    image: "../images/earring2.png",
+    description: "Multicolorido Elegante Collar Volume Pino Embellished Jóias"
   },
   {
     id: 8,
-    name: "Infinity Gold Bangle",
-    category: "bracelets",
+    name: "Ocean Carle",
+    category: "necklaces",
     material: "Yellow Gold",
-    price: 290,
-    badge: null,
-    image: "https://images.unsplash.com/photo-1564173062-85f42423a44d?w=600&q=80",
-    description: "Solid 14k gold bangle with brushed finish."
+    price: 500,
+    badge: "bestsaller",
+    image: "../images/collier2.png",
+    description: " Discover elegant pearl necklaces and delicate jewelry pieces perfect for a chic minimalist look"
   },
   {
     id: 9,
-    name: "Noir Onyx Ring",
-    category: "rings",
-    material: "Silver",
-    price: 230,
-    badge: "Sale",
-    image: "https://images.unsplash.com/photo-1617038220319-276d3cfab638?w=600&q=80",
-    description: "Bold black onyx set in oxidised sterling silver."
+    name: "Elegant Gold Bracelet Collection",
+    category: "bracelets",
+    material: "Yellow Gold",
+    price: 150,
+    badge: "limited",
+    image: "../images/braclet2.png",
+    description: "Gold Clover & Nail & love Bracelet Set."
   },
   {
     id: 10,
-    name: "Celestial Choker",
-    category: "necklaces",
-    material: "Yellow Gold",
-    price: 340,
+    name: "Floral Elegance",
+    category: "brooches",
+    material: "White Gold",
+    price: 80,
     badge: null,
-    image: "https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=600&q=80",
-    description: "Moon-and-stars choker in polished yellow gold."
+    image: "../images/brooche2.png",
+    description: "Elegant White Embellished Hair Clip"
   },
   {
     id: 11,
-    name: "Vintage Cameo Brooch",
-    category: "brooches",
-    material: "Silver",
-    price: 155,
-    badge: null,
-    image: "https://images.unsplash.com/photo-1535632787350-4e68ef0ac584?w=600&q=80",
-    description: "Victorian-inspired cameo brooch in antique silver."
+    name: "Bague Fleur d'Or Élégance",
+    category: "rings",
+    material: "Yellow Gold",
+    price: 300,
+    badge: "sale",
+    image: "../images/ring3.png",
+    description: "élégante et intemporelle, elle apporte une touche de raffinement à toutes vos tenues. ✨"
   },
   {
     id: 12,
-    name: "Halo Engagement Ring",
-    category: "rings",
-    material: "White Gold",
-    price: 1240,
+    name: "Pearl Starfish Chic",
+    category: "earrings",
+    material: "Yellow Gold",
+    price: 240,
     badge: "Bestseller",
-    image: "https://images.unsplash.com/photo-1608042314453-ae338d80c427?w=600&q=80",
-    description: "Classic halo setting with centre diamond, 18k white gold."
-  }
+    image: "../images/earring3.png",
+    description: "Retro starfish stud earrings with pearls and rhinestones, elegant and delicate"
+  },
+  {
+    id: 13,
+    name: "Gold Star Layer Necklace",
+    category: "necklaces",
+    material: "Yellow Gold",
+    price: 240,
+    badge: "limited",
+    image: "../images/collier3.png",
+    description: "gold-plated layered star pendant necklace with a chic, elegant, and modern look"
+  },
+  {
+    id: 14,
+    name: "Broche Rose Chic Strass",
+    category: "brooches",
+    material: "Rose Gold",
+    price: 40,
+    badge: null,
+    image: "../images/brooche3.png",
+    description: "Broche élégante en strass, idéale pour bouquets, robes et vêtements, au style chic et tendance"
+  },
+  {
+    id: 15,
+    name: "Louis Vuitton",
+    category: "braceletes",
+    material: "Yellow Gold",
+    price: 500,
+    badge: "bestseller",
+    image: "../images/braclet3.png",
+    description: "Elegants et modernes"
+  },
+  {
+    id: 16,
+    name: "Pandora",
+    category: "rings",
+    material: "Rose Gold",
+    price: 500,
+    badge: "bestseller",
+    image: "../images/ring4.png",
+    description: "Elegants et modernes"
+  },
+  {
+    id: 17,
+    name: "Tears",
+    category: "earrings",
+    material: "Yellow Gold",
+    price: 99,
+    badge: "bestseller",
+    image: "../images/earring4.png",
+    description: "Elegants et modernes"
+  },
+  {
+    id: 18,
+    name: "Swan",
+    category: "necklaces",
+    material: "Rose Gold",
+    price: 220,
+    badge: "bestseller",
+    image: "../images/collier4.png",
+    description: "Elegants et modernes"
+  },
+  {
+    id: 19,
+    name: "Leaf",
+    category: "brooches",
+    material: "White Gold",
+    price: 45,
+    badge: null,
+    image: "../images/brooche4.png",
+    description: "Elegants et modernes"
+  },
+  {
+    id: 20,
+    name: "Flowers",
+    category: "braceletes",
+    material: "Yellow Gold",
+    price: 500,
+    badge: "bestseller",
+    image: "../images/braclet4.png",
+    description: "Elegants et modernes"
+  },
+  {
+    id: 21,
+    name: "",
+    category: "rings",
+    material: "Rose Gold",
+    price: 370,
+    badge: "sale",
+    image: "../images/ring5.png",
+    description: "Elegants et modernes"
+  },
+  {
+    id: 22,
+    name: "",
+    category: "rings",
+    material: "Rose Gold",
+    price: 230,
+    badge: "bestseller",
+    image: "../images/ring6.png",
+    description: "Elegants et modernes"
+  },
+  {
+    id: 23,
+    name: "",
+    category: "necklaces",
+    material: "Yellow Gold",
+    price: 420,
+    badge: "bestseller",
+    image: "../images/collier5.png",
+    description: "Elegants et modernes"
+  },
+  {
+    id: 24,
+    name: "",
+    category: "brooches",
+    material: "White Gold",
+    price: 500,
+    badge: "sale",
+    image: "../images/braclet4.png",
+    description: "Elegants et modernes"
+  },
+  {
+    id: 25,
+    name: "Dior",
+    category: "braceletes",
+    material: "Yellow Gold",
+    price: 500,
+    badge: "bestseller",
+    image: "../images/braclet5.png",
+    description: "Elegants et modernes"
+  },
+  {
+    id: 26,
+    name: "dior",
+    category: "braceletes",
+    material: "Yellow Gold",
+    price: 500,
+    badge: "bestseller",
+    image: "../images/braclet6.png",
+    description: "Elegants et modernes"
+  },
+  {
+    id: 27,
+    name: "Feuilles",
+    category: "brooches",
+    material: "White Gold",
+    price: 600,
+    badge: "New",
+    image: "../images/brooche5.png",
+    description: "Elegants et modernes"
+  },
+  {
+    id: 28,
+    name: "Plume",
+    category: "brooches",
+    material: "Yellow Gold",
+    price: 500,
+    badge: "bestseller",
+    image: "../images/brooche6.png",
+    description: "Elegants et modernes"
+  },
+  {
+    id: 29,
+    name: "Princesse",
+    category: "necklaces",
+    material: "Rose Gold",
+    price: 700,
+    badge: "new",
+    image: "../images/collier6.png",
+    description: "Elegants et modernes"
+  },
+  {
+    id: 30,
+    name: "",
+    category: "rings",
+    material: "white Gold",
+    price: 500,
+    badge: "bestseller",
+    image: "../images/ring7.png",
+    description: "Elegants et modernes"
+  },
+  {
+    id: 31,
+    name: "Pandora",
+    category: "rings",
+    material: "white Gold",
+    price: 500,
+    badge: "bestseller",
+    image: "../images/ring8.png",
+    description: "Elegants et modernes"
+  },
+   {
+    id: 32,
+    name: "",
+    category: "earrings",
+    material: "Silver",
+    price: 85,
+    badge: "bestseller",
+    image: "../images/silver1.png",
+    description: "Elegants et modernes"
+  },
+  {
+    id: 33,
+    name: "",
+    category: "rings",
+    material: "Platinum",
+    price: 2340,
+    badge: "New",
+    image: "../images/pal1.png",
+    description: "Elegants et modernes"
+  },
+  {
+    id: 34,
+    name: "",
+    category: "necklaces",
+    material: "Platinum",
+    price: 700,
+    badge: "sale",
+    image: "../images/pal2.png",
+    description: "Elegants et modernes"
+  },
+  {
+    id: 35,
+    name: "",
+    category: "braclets",
+    material: "Silver",
+    price: 500,
+    badge: "New",
+    image: "../images/silver2.png",
+    description: "Elegants et modernes"
+  },
+  {
+    id: 36,
+    name: "",
+    category: "braclets",
+    material: "Platinum",
+    price: 330,
+    badge: null,
+    image: "../images/pal3.png",
+    description: "Elegants et modernes"
+  },
+  {
+    id: 37,
+    name: "",
+    category: "rings",
+    material: "Silver",
+    price: 7800,
+    badge: "New",
+    image: "../images/silver3.png",
+    description: "Elegants et modernes"
+  },
+  {
+    id: 38,
+    name: "",
+    category: "necklaces",
+    material: "Silver",
+    price: 220,
+    badge: null,
+    image: "../images/silver4.png",
+    description: "Elegants et modernes"
+  },
+  {
+    id: 39,
+    name: "",
+    category: "earrings",
+    material: "Platinum",
+    price: 130,
+    badge: null,
+    image: "../images/pal4.png",
+    description: "Elegants et modernes"
+  },
+  {
+    id: 40,
+    name: "",
+    category: "rings",
+    material: "Silver",
+    price: 6100,
+    badge: "NEW",
+    image: "../images/silver5.png",
+    description: "Elegants et modernes"
+  },
+
 ];
 
 // ── State ───────────────────────────────────────────────────────
