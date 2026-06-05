@@ -5,10 +5,11 @@
 
 // ── Predefined user list ────────────────────────────────────────
 const USERS = [
-  { id: 1, firstName: "Sophie",  lastName: "Martin",   email: "sophie@aurielle.com",  password: "Sophie123!" },
-  { id: 2, firstName: "Camille", lastName: "Dubois",   email: "camille@aurielle.com", password: "Camille456@" },
-  { id: 3, firstName: "Emma",    lastName: "Leclerc",  email: "emma@aurielle.com",    password: "Emma789#" },
-  { id: 4, firstName: "Admin",   lastName: "Aurielle", email: "admin@aurielle.com",   password: "Admin2025!" }
+  { id: 1, firstName: "sihem",  lastName: "ramdani",   email: "sihem@aurielle.com",  password: "Sihem123!" },
+  { id: 2, firstName: "lyna", lastName: "halil",   email: "lyna@aurielle.com", password: "Lyna123@" },
+  { id: 3, firstName: "roumaissa",lastName: "halil",  email: "roumaissa@aurielle.com",    password: "Roumaissa789#" },
+  { id: 4, firstName: "lynda",   lastName: "makhloufi", email: "lynda@aurielle.com",   password: "lynda2005!" },
+  { id: 4, firstName: "Admin",   lastName: "Aurielle", email: "admin@aurielle.com",   password: "Admin2026!" }
 ];
 
 // ── Session helpers ─────────────────────────────────────────────

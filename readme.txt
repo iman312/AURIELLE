@@ -45,8 +45,8 @@ Built with HTML5, CSS3, and vanilla JavaScript (no frameworks).
   5. Cart items appear on the Order page, loaded from localStorage.
 
 ── Demo Accounts ────────────────────────────
-  Email:    sophie@aurielle.com
-  Password: Sophie123!
+  Email:    sihem@aurielle.com
+  Password: sihem123!
 
   Email:    admin@aurielle.com
   Password: Admin2025!

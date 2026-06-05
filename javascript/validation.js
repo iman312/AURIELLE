@@ -14,7 +14,7 @@ const REGEX = {
   phone:     /^[0-9]{10}$/,
   address:   /^[A-Za-z0-9\s,.\-']{5,100}$/,
   zip:       /^[0-9]{4,10}$/,
-  name:      /^[A-Za-z0-9\s,.\-']{2,80}$/,
+  name:      /^[A-Za-z0-9\s,.\-']{2,40}$/,
   cardNum:   /^[0-9]{13,19}$/,
   cvv:       /^[0-9]{3,4}$/,
   expiry:    /^(0[1-9]|1[0-2])\/([0-9]{2})$/
@@ -41,7 +41,11 @@ const MESSAGES = {
 
 // ── Core validator ──────────────────────────────────────────────
 function validateField(input, rule, msgEl) {
-  const value = input.value.trim();
+  let value = input.value.trim();
+
+if (rule === "cardNum") {
+  value = value.replace(/\s/g, "");
+} 
 
   if (!value) {
     showError(input, msgEl, MESSAGES.required);
@@ -222,10 +226,10 @@ function initOrderValidation() {
   const cardInput = document.getElementById("cardNum");
   if (cardInput) {
     cardInput.addEventListener("input", () => {
-      let v = cardInput.value.replace(/\D/g, "").substring(0, 16);
+      let v = cardInput.value.replace(/\D/g, "").substring(0, 19);
       cardInput.value = v.replace(/(.{4})/g, "$1 ").trim();
     });
-  }
+}
 
   // Expiry formatter
   const expiryInput = document.getElementById("cardExpiry");
