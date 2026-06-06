@@ -382,7 +382,7 @@ ul  { list-style: none; }
    AUTH PAGES (Login / Register)
    ============================================ */
 .auth-page {
-  min-height: 100vh; background: var(--black);
+  min-height: 100vh; background:linear-gradient(135deg, #f5f2f2, #070101);
   display: flex; align-items: center;
   padding: 6rem 0 4rem;
   position: relative;
@@ -395,7 +395,7 @@ ul  { list-style: none; }
 .auth-box {
   position: relative; z-index: 1;
   width: min(480px, 92%); margin: 0 auto;
-  background: rgba(255,255,255,0.03);
+  background: linear-gradient(135deg, #0b0101, #550606);
   border: 1px solid var(--border);
   padding: 3rem;
 }
@@ -1423,3 +1423,16 @@ ul  { list-style: none; }
   }
 }
 .nav-orders-link:hover { color: var(--gold); }
+button,
+.btn,
+.filter-btn,
+.page-btn,
+.qty-btn,
+.remove-btn,
+.btn-delete-order,
+.btn-clear-orders {
+  border-radius: 50px;
+}
+.nav-auth a {
+  border-radius: 50px; 
+}
