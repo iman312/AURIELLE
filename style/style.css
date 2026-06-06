@@ -447,7 +447,7 @@ ul  { list-style: none; }
   font-size: 0.82rem; margin-bottom: 1.5rem;
   display: none; border-left: 3px solid;
 }
-.alert.error   { background: rgba(192,57,43,0.12); border-color: var(--red); color: #e74c3c; display: block; }
+.alert.error   { background: rgba(192,57,43,0.12); border-color: var(--red); color: #000000; display: block; }
 .alert.success { background: rgba(39,174,96,0.12); border-color: var(--green); color: #2ecc71; display: block; }
 
 .order-page .alert {
