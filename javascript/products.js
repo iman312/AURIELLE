@@ -206,7 +206,7 @@ const PRODUCTS = [
   },
   {
     id: 21,
-    name: "",
+    name: "Rosalie",
     category: "rings",
     material: "Rose Gold",
     price: 370,
@@ -236,7 +236,7 @@ const PRODUCTS = [
   },
   {
     id: 24,
-    name: "",
+    name: "Sparkling Bloom",
     category: "brooches",
     material: "White Gold",
     price: 500,
@@ -296,7 +296,7 @@ const PRODUCTS = [
   },
   {
     id: 30,
-    name: "",
+    name: "Floral Star Ring",
     category: "rings",
     material: "white Gold",
     price: 500,
@@ -316,7 +316,7 @@ const PRODUCTS = [
   },
    {
     id: 32,
-    name: "",
+    name: "Secret Garden Ring",
     category: "earrings",
     material: "Silver",
     price: 85,
@@ -326,7 +326,7 @@ const PRODUCTS = [
   },
   {
     id: 33,
-    name: "",
+    name: "Moonlight Shine Earrings",
     category: "rings",
     material: "Platinum",
     price: 2340,
@@ -396,7 +396,7 @@ const PRODUCTS = [
   },
   {
     id: 40,
-    name: "",
+    name: "Daimond Aurora",
     category: "rings",
     material: "Silver",
     price: 6100,
