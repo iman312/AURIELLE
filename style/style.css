@@ -4,13 +4,13 @@
 
 
 :root {
-  --black:   #070400;
+  --black:   #9B111E;
   --white:   #faf8f4;
   --ivory:   #f2ede4;
   --gold:    #c9a84c;
   --gold-lt: #e0c97a;
   --gold-dk: #9a7a30;
-  --gray:    #888;
+  --gray:    #484848;
   --red:     #c0392b;
   --green:   #27ae60;
   --border:  rgba(201, 168, 76, 0.25);
@@ -272,7 +272,7 @@ ul  { list-style: none; }
    ============================================ */
 .categories { padding: 6rem 0; background: var(--black); }
 .categories .section-title { color: var(--white); }
-.categories-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.categories-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
 
 .category-card {
   position: relative; overflow: hidden;
@@ -368,7 +368,8 @@ ul  { list-style: none; }
 .shop-count { font-size: 0.8rem; color: var(--gray); }
 .shop-sort { display: flex; align-items: center; gap: 0.7rem; }
 .shop-sort label { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gray); }
-.shop-sort select { border: 1px solid var(--border); background: transparent; font-family: var(--font-body); font-size: 0.82rem; color: var(--black); padding: 0.45rem 1.8rem 0.45rem 0.8rem; cursor: pointer; outline: none; appearance: none; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5 6 5-6' stroke='%23c9a84c' stroke-width='1.2'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 0.6rem center; background-size: 10px; }
+.shop-sort select { border: 1px solid var(--border); background: transparent; font-family: var(--font-body); font-size: 0.82rem; color: var(--black); padding: 0.45rem 1.8rem 0.45rem 0.8rem; cursor: pointer; outline: none; appearance: none; 
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5 6 5-6' stroke='%23c9a84c' stroke-width='1.2'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 0.6rem center; background-size: 10px; }
 
 .shop-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
 
@@ -622,7 +623,6 @@ ul  { list-style: none; }
   transform: scale(1.1);
   filter: grayscale(0);
 }
-
 
 
 /* ============================================
