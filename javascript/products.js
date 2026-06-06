@@ -147,7 +147,7 @@ const PRODUCTS = [
   {
     id: 15,
     name: "Louis Vuitton",
-    category: "braceletes",
+    category: "bracelets",
     material: "Yellow Gold",
     price: 500,
     badge: "bestseller",
@@ -197,7 +197,7 @@ const PRODUCTS = [
   {
     id: 20,
     name: "Flowers",
-    category: "braceletes",
+    category: "bracelets",
     material: "Yellow Gold",
     price: 500,
     badge: "bestseller",
@@ -216,7 +216,7 @@ const PRODUCTS = [
   },
   {
     id: 22,
-    name: "",
+    name: "Eternal Rose",
     category: "rings",
     material: "Rose Gold",
     price: 230,
@@ -226,7 +226,7 @@ const PRODUCTS = [
   },
   {
     id: 23,
-    name: "",
+    name: "Pandora",
     category: "necklaces",
     material: "Yellow Gold",
     price: 420,
@@ -241,13 +241,13 @@ const PRODUCTS = [
     material: "White Gold",
     price: 500,
     badge: "sale",
-    image: "../images/braclet4.png",
+    image: "../images/brooche7.png",
     description: "Elegants et modernes"
   },
   {
     id: 25,
     name: "Dior",
-    category: "braceletes",
+    category: "bracelets",
     material: "Yellow Gold",
     price: 500,
     badge: "bestseller",
@@ -257,7 +257,7 @@ const PRODUCTS = [
   {
     id: 26,
     name: "dior",
-    category: "braceletes",
+    category: "bracelets",
     material: "Yellow Gold",
     price: 500,
     badge: "bestseller",
@@ -336,7 +336,7 @@ const PRODUCTS = [
   },
   {
     id: 34,
-    name: "",
+    name: "Moonlit Drop",
     category: "necklaces",
     material: "Platinum",
     price: 700,
@@ -346,8 +346,8 @@ const PRODUCTS = [
   },
   {
     id: 35,
-    name: "",
-    category: "braclets",
+    name: "Royal Sparkle",
+    category: "bracelets",
     material: "Silver",
     price: 500,
     badge: "New",
@@ -356,8 +356,8 @@ const PRODUCTS = [
   },
   {
     id: 36,
-    name: "",
-    category: "braclets",
+    name: "Crystal Crown",
+    category: "bracelets",
     material: "Platinum",
     price: 330,
     badge: null,
@@ -366,7 +366,7 @@ const PRODUCTS = [
   },
   {
     id: 37,
-    name: "",
+    name: "Frost Flower",
     category: "rings",
     material: "Silver",
     price: 7800,
@@ -376,7 +376,7 @@ const PRODUCTS = [
   },
   {
     id: 38,
-    name: "",
+    name: "Starlight Cascade",
     category: "necklaces",
     material: "Silver",
     price: 220,
@@ -386,7 +386,7 @@ const PRODUCTS = [
   },
   {
     id: 39,
-    name: "",
+    name: "Cystal Rain",
     category: "earrings",
     material: "Platinum",
     price: 130,
