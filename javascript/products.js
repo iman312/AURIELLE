@@ -321,7 +321,7 @@ const PRODUCTS = [
     material: "Silver",
     price: 85,
     badge: "bestseller",
-    image: "../images/silver1.png",
+    image: "../images/earring5.png",
     description: "Evoke the hidden beauty of an enchanted garden"
   },
   {
@@ -331,7 +331,7 @@ const PRODUCTS = [
     material: "Platinum",
     price: 2340,
     badge: "New",
-    image: "../images/pal1.png",
+    image: "../images/ring9.png",
     description: "Reflects the softness and glow of moonlight."
   },
   {
@@ -341,7 +341,7 @@ const PRODUCTS = [
     material: "Platinum",
     price: 700,
     badge: "sale",
-    image: "../images/pal2.png",
+    image: "../images/collier7.png",
     description: "Evokes the softness of a drop illuminated by moonlight."
   },
   {
@@ -351,7 +351,7 @@ const PRODUCTS = [
     material: "Silver",
     price: 500,
     badge: "New",
-    image: "../images/silver2.png",
+    image: "../images/braclet8.png",
     description: "Embodies luxury and royal brilliance."
   },
   {
@@ -361,7 +361,7 @@ const PRODUCTS = [
     material: "Platinum",
     price: 330,
     badge: null,
-    image: "../images/pal3.png",
+    image: "../images/braclet9.png",
     description: "Symbolizes royal elegance and crystal brilliance."
   },
   {
@@ -371,7 +371,7 @@ const PRODUCTS = [
     material: "Silver",
     price: 7800,
     badge: "New",
-    image: "../images/silver3.png",
+    image: "../images/ring10.png",
     description: "Captures the fragile beauty of a flower frozen in frost."
   },
   {
@@ -381,7 +381,7 @@ const PRODUCTS = [
     material: "Silver",
     price: 220,
     badge: null,
-    image: "../images/silver4.png",
+    image: "../images/collier8.png",
     description: "Evokes a cascade of glowing stars."
   },
   {
@@ -391,7 +391,7 @@ const PRODUCTS = [
     material: "Platinum",
     price: 130,
     badge: null,
-    image: "../images/pal4.png",
+    image: "../images/earring6.png",
     description: "Evoke a shower of sparkling crystals. Their elegant and radiant design adds a touch of freshness and sophistication to your style."
   },
   {
@@ -401,7 +401,7 @@ const PRODUCTS = [
     material: "Silver",
     price: 6100,
     badge: "NEW",
-    image: "../images/silver5.png",
+    image: "../images/ring11.png",
     description: "Captures the magic of the northern lights through the brilliance of diamonds. Its refined and radiant design creates an exceptional piece, symbolizing purity and timeless elegance."
   },
 

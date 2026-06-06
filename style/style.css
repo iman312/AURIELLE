@@ -7,10 +7,10 @@
   --black:   #3c060b;
   --white:   #faf8f4;
   --ivory:   #f2ede4;
-  --gold:    #c9a84c;
+  --gold:    rgb(171, 123, 11);
   --gold-lt: #e0c97a;
-  --gold-dk: #9a7a30;
-  --gray:    #484848;
+  --gold-dk: #d1b812fc;
+  --gray:    #090404;
   --red:     #c0392b;
   --green:   #27ae60;
   --border:  rgba(201, 168, 76, 0.25);
@@ -246,7 +246,7 @@ ul  { list-style: none; }
 
 .product-badge {
   position: absolute; top: 1rem; left: 1rem;
-  background: var(--gold); color: var(--black);
+  background: rgb(171, 123, 11); color: var(--black);
   font-size: 0.6rem; letter-spacing: 0.15em;
   text-transform: uppercase; padding: 0.3rem 0.7rem; z-index: 1;
 }
@@ -382,8 +382,10 @@ ul  { list-style: none; }
    AUTH PAGES (Login / Register)
    ============================================ */
 .auth-page {
-  min-height: 100vh; background: var(--black);
-  display: flex; align-items: center;
+  min-height: 100vh; 
+  background:linear-gradient(135deg, #ebe9e7, #090000);
+  display: flex;
+  align-items: center;
   padding: 6rem 0 4rem;
   position: relative;
 }
@@ -395,7 +397,7 @@ ul  { list-style: none; }
 .auth-box {
   position: relative; z-index: 1;
   width: min(480px, 92%); margin: 0 auto;
-  background: rgba(255,255,255,0.03);
+  background:  linear-gradient(135deg, #6f1809 , #350308);
   border: 1px solid var(--border);
   padding: 3rem;
 }
@@ -447,7 +449,7 @@ ul  { list-style: none; }
   font-size: 0.82rem; margin-bottom: 1.5rem;
   display: none; border-left: 3px solid;
 }
-.alert.error   { background: rgba(192,57,43,0.12); border-color: var(--red); color: #e74c3c; display: block; }
+.alert.error   { background: rgba(192,57,43,0.12); border-color: var(--red); color: red; display: block; }
 .alert.success { background: rgba(39,174,96,0.12); border-color: var(--green); color: #2ecc71; display: block; }
 
 /* ============================================
@@ -690,7 +692,32 @@ ul  { list-style: none; }
 .remove-btn:hover { color: #e74c3c; }
 .product-description {
   font-size: 0.9rem;
-  color: #562005;
+  color: #621b0b;
   margin: 8px 0;
   line-height: 1.4;
+}
+button,
+.btn,
+.filter-btn,
+.nav-auth a,
+.product-overlay span,
+.page-btn,
+.qty-btn {
+  border-radius: 50px !important;
+  transition: all 0.35s ease;
+}
+.product-badge {
+  border-radius: 50px;
+}
+.order-page {
+  background: white !important;
+}
+.summary-item-cat {
+  color: #dfabab;
+}
+.remove-btn {
+  color: rgba(238, 238, 236, 0.987);
+}
+.order-summary {
+  background: rgb(11, 1, 1);
 }
