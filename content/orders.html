@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Order History — Aurielle Fine Jewelry</title>
+  <link rel="stylesheet" href="../style/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- ── HEADER ─────────────────────────────────────────────── -->
+  <header class="header dark" id="header">
+    <div class="container">
+      <nav class="nav">
+        <a href="../index.html" class="nav-logo">
+          <img src="../images/logo.png" alt="Aurielle logo" />
+          <div class="nav-logo-text">
+            <span class="brand">AURIELLE</span>
+            <span class="brand-sub">Fine Jewelry</span>
+          </div>
+        </a>
+        <ul class="nav-links">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="products.html">Shop</a></li>
+          <li><a href="order.html">Cart</a></li>
+          <li><a href="orders.html" class="active">Orders</a></li>
+        </ul>
+        <div class="nav-auth" id="navAuth">
+          <a href="login.html">Login</a>
+          <a href="register.html" class="nav-auth-primary">Register</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+
+  <!-- ── ORDERS PAGE ────────────────────────────────────────── -->
+  <main class="orders-page">
+    <div class="container">
+
+      <div class="orders-page-header">
+        <div class="orders-page-header-left">
+          <span class="section-label">Account</span>
+          <h1>Order History</h1>
+          <div class="orders-count-badge">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <span id="ordersCountLabel">0 orders</span>
+          </div>
+        </div>
+        <button class="btn-clear-orders" id="clearAllBtn" title="Delete all orders">
+          <i class="fa-solid fa-trash-can"></i>&nbsp; Clear All
+        </button>
+      </div>
+
+      <!-- Search + Sort toolbar -->
+      <div class="orders-toolbar" id="ordersToolbar" style="display:none;">
+        <div class="orders-search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" id="ordersSearchInput" placeholder="Search by name, email or order ID…" />
+        </div>
+        <select class="orders-sort-select" id="ordersSortSelect">
+          <option value="newest">Newest First</option>
+          <option value="oldest">Oldest First</option>
+          <option value="highest">Total: High → Low</option>
+          <option value="lowest">Total: Low → High</option>
+        </select>
+      </div>
+
+      <!-- Orders list -->
+      <div id="ordersContainer">
+        <!-- Populated by JS -->
+      </div>
+
+    </div>
+  </main>
+
+
+  <!-- ── FOOTER ─────────────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand footer-col">
+          <span class="logo-word">AURIELLE</span>
+          <span class="logo-sub">Fine Jewelry</span>
+          <p class="footer-desc">Handcrafted jewelry for those who believe beauty lives in the details.</p>
+          <div class="footer-social">
+            <a href="#" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" title="Pinterest"><i class="fa-brands fa-pinterest"></i></a>
+            <a href="#" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="products.html">Shop</a></li>
+            <li><a href="order.html">Cart</a></li>
+            <li><a href="orders.html">Order History</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Returns</a></li>
+            <li><a href="#">Shipping</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <div class="footer-contact-item">
+            <i class="fa-regular fa-envelope"></i>
+            <span>hello@aurielle.com</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fa-regular fa-phone"></i>
+            <span>+1 (800) 555-0192</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; 2025 Aurielle Fine Jewelry. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../javascript/auth.js"></script>
+  <script>
+    /* ============================================================
+       orders.html — Order History page logic
+       Reads from localStorage key "aurielle_orders"
+       All orders are saved by validation.js on successful checkout
+       ============================================================ */
+
+    // ── Storage helpers ─────────────────────────────────────────
+    function getOrders() {
+      return JSON.parse(localStorage.getItem("aurielle_orders") || "[]");
+    }
+    function saveOrders(orders) {
+      localStorage.setItem("aurielle_orders", JSON.stringify(orders));
+    }
+
+    // ── Format date nicely ──────────────────────────────────────
+    function formatDate(iso) {
+      const d = new Date(iso);
+      return d.toLocaleDateString("en-GB", {
+        day: "2-digit", month: "short", year: "numeric"
+      }) + " · " + d.toLocaleTimeString("en-GB", {
+        hour: "2-digit", minute: "2-digit"
+      });
+    }
+
+    // ── Normalise an order so old/incomplete records never crash ──
+    function normaliseOrder(order) {
+      const items    = Array.isArray(order.items) ? order.items : [];
+      const subtotal = typeof order.subtotal  === "number"
+        ? order.subtotal
+        : items.reduce((s, i) => s + (i.price || 0) * (i.qty || 1), 0);
+      // support both old schema  and new schema (shipping: flat 700 da)
+      const shipping = typeof order.shipping === "number" ? order.shipping
+                     : 700;
+      const total    = typeof order.total === "number" ? order.total : subtotal + shipping;
+      return { ...order, items, subtotal, shipping, total };
+    }
+
+    // ── Render a single order card ──────────────────────────────
+    function renderOrderCard(rawOrder) {
+      const order = normaliseOrder(rawOrder);
+
+      const productsHTML = order.items.length
+        ? order.items.map(item => `
+          <div class="order-product-item">
+            <img class="order-product-img"
+                 src="${item.image || ''}"
+                 alt="${item.name || 'Product'}"
+                 onerror="this.src='../images/logo.png'" />
+            <div class="order-product-info">
+              <p class="order-product-name">${item.name || '—'}</p>
+              <p class="order-product-meta">${item.category || ''} &middot; Qty ${item.qty || 1}</p>
+            </div>
+            <span class="order-product-price">${((item.price || 0) * (item.qty || 1)).toLocaleString()} da</span>
+          </div>
+        `).join("")
+        : `<p style="font-size:0.82rem;color:var(--gray);">No item details available.</p>`;
+
+      // Safe customer — old records may not have this object at all
+      const c = order.customer || {};
+      const customerName = [c.firstName, c.lastName].filter(Boolean).join(" ") || "—";
+      const addressLine  = [c.address, c.city, c.zip].filter(Boolean).join(", ") || "—";
+
+      return `
+        <div class="order-card" data-order-id="${order.id}">
+
+          <div class="order-card-header">
+            <span class="order-card-id">${order.id || "—"}</span>
+            <span class="order-card-date">
+              <i class="fa-regular fa-clock"></i>&nbsp;${formatDate(order.date)}
+            </span>
+            <span class="order-card-total">
+              Total&nbsp;<span>${order.total.toLocaleString()} da</span>
+            </span>
+          </div>
+
+          <div class="order-card-body">
+
+            <!-- Customer info -->
+            <div class="order-card-section">
+              <h4><i class="fa-regular fa-user"></i>&nbsp; Customer</h4>
+              <div class="order-info-row">
+                <span class="order-info-label">Name</span>
+                <span class="order-info-value">${customerName}</span>
+              </div>
+              <div class="order-info-row">
+                <span class="order-info-label">Email</span>
+                <span class="order-info-value">${c.email || "—"}</span>
+              </div>
+              <div class="order-info-row">
+                <span class="order-info-label">Phone</span>
+                <span class="order-info-value">${c.phone || "—"}</span>
+              </div>
+              <div class="order-info-row">
+                <span class="order-info-label">Address</span>
+                <span class="order-info-value">${addressLine}</span>
+              </div>
+              <hr style="border:none;border-top:1px solid rgba(201,168,76,0.1);margin:1rem 0;" />
+              <div class="order-info-row">
+                <span class="order-info-label">Subtotal</span>
+                <span class="order-info-value">${order.subtotal.toLocaleString()} da</span>
+              </div>
+              <div class="order-info-row">
+                <span class="order-info-label">Shipping</span>
+                <span class="order-info-value">${order.shipping.toLocaleString()} da</span>
+              </div>
+              <div class="order-info-row" style="margin-top:0.4rem;">
+                <span class="order-info-label" style="font-weight:600;">Total</span>
+                <span class="order-info-value" style="color:var(--gold-dk);font-family:var(--font-display);font-size:1.05rem;">
+                  ${order.total.toLocaleString()} da
+                </span>
+              </div>
+            </div>
+
+            <!-- Products -->
+            <div class="order-card-section">
+              <h4><i class="fa-regular fa-bag-shopping"></i>&nbsp; Items (${order.items.length})</h4>
+              <div class="order-products-list">
+                ${productsHTML}
+              </div>
+            </div>
+
+          </div>
+
+          <div class="order-card-footer">
+            <button class="btn-delete-order" onclick="deleteOrder('${order.id}')">
+              <i class="fa-solid fa-xmark"></i>&nbsp; Delete Order
+            </button>
+          </div>
+
+        </div>
+      `;
+    }
+
+    // ── Render all orders ───────────────────────────────────────
+    function renderOrders(orders) {
+      const container   = document.getElementById("ordersContainer");
+      const countLabel  = document.getElementById("ordersCountLabel");
+      const toolbar     = document.getElementById("ordersToolbar");
+      const clearAllBtn = document.getElementById("clearAllBtn");
+
+      countLabel.textContent = orders.length === 1
+        ? "1 order"
+        : `${orders.length} orders`;
+
+      if (orders.length === 0) {
+        toolbar.style.display     = "none";
+        clearAllBtn.style.display = "none";
+        container.innerHTML = `
+          <div class="orders-empty">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <h3>No orders yet</h3>
+            <p>Once you complete a purchase, your orders will appear here.</p>
+            <a href="products.html" class="btn btn-primary">Browse the Collection</a>
+          </div>`;
+        return;
+      }
+
+      toolbar.style.display     = "flex";
+      clearAllBtn.style.display = "";
+
+      const grid = document.createElement("div");
+      grid.className = "orders-grid";
+      grid.innerHTML = orders.map(renderOrderCard).join("");
+      container.innerHTML = "";
+      container.appendChild(grid);
+    }
+
+    // ── Filter + sort pipeline ──────────────────────────────────
+    function applyOrdersFilter() {
+      let orders = getOrders();
+      const query = document.getElementById("ordersSearchInput").value.toLowerCase().trim();
+      const sort  = document.getElementById("ordersSortSelect").value;
+
+      // Search
+      if (query) {
+        orders = orders.filter(o =>
+          o.id.toLowerCase().includes(query) ||
+          o.customer.firstName.toLowerCase().includes(query) ||
+          o.customer.lastName.toLowerCase().includes(query) ||
+          o.customer.email.toLowerCase().includes(query)
+        );
+      }
+
+      // Sort
+      switch (sort) {
+        case "oldest":  orders.sort((a,b) => new Date(a.date) - new Date(b.date)); break;
+        case "highest": orders.sort((a,b) => b.total - a.total); break;
+        case "lowest":  orders.sort((a,b) => a.total - b.total); break;
+        default:        orders.sort((a,b) => new Date(b.date) - new Date(a.date)); // newest
+      }
+
+      renderOrders(orders);
+    }
+
+    // ── Delete a single order ───────────────────────────────────
+    function deleteOrder(id) {
+      const card = document.querySelector(`.order-card[data-order-id="${id}"]`);
+      if (card) {
+        card.style.transition = "opacity 0.25s, transform 0.25s";
+        card.style.opacity    = "0";
+        card.style.transform  = "translateY(-6px)";
+        setTimeout(() => {
+          const orders = getOrders().filter(o => o.id !== id);
+          saveOrders(orders);
+          applyOrdersFilter();
+        }, 270);
+      }
+    }
+
+    // ── Clear all orders ────────────────────────────────────────
+    function initClearAll() {
+      document.getElementById("clearAllBtn").addEventListener("click", () => {
+        if (getOrders().length === 0) return;
+        // Simple confirm — keeps it lightweight
+        const confirmed = window.confirm(
+          "Delete all order history? This cannot be undone."
+        );
+        if (confirmed) {
+          localStorage.removeItem("aurielle_orders");
+          applyOrdersFilter();
+        }
+      });
+    }
+
+    // ── One-time migration: normalise & re-save all stored orders ──
+    // Runs once on load so old orders saved before the current schema
+    // are cleaned up — prevents any future toLocaleString() crashes.
+    function migrateOrders() {
+      const raw = JSON.parse(localStorage.getItem("aurielle_orders") || "[]");
+      const fixed = raw.map(normaliseOrder);
+      localStorage.setItem("aurielle_orders", JSON.stringify(fixed));
+    }
+
+    // ── Init ────────────────────────────────────────────────────
+    document.addEventListener("DOMContentLoaded", () => {
+      migrateOrders();       // fix any old/bad records first
+      applyOrdersFilter();
+      initClearAll();
+
+      document.getElementById("ordersSearchInput")
+        .addEventListener("input", applyOrdersFilter);
+      document.getElementById("ordersSortSelect")
+        .addEventListener("change", applyOrdersFilter);
+    });
+  </script>
+
+</body>
+</html>
