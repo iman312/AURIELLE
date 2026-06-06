@@ -12,7 +12,8 @@ const REGEX = {
   password:  /^(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&\-_#])[A-Za-z\d@$!%*?&\-_#]{6,}$/,
   // FIX: exactly 10 digits only (Algerian local format)
   phone:     /^[0-9]{10}$/,
-  address:   /^[A-Za-z0-9\s,.\-']{5,100}$/,
+  address:   /^(?=.*\p{L})[\p{L}0-9\s.\-']{2,40}$/u,
+  city:      /^(?=.*\p{L})[\p{L}0-9\s.\-']{2,40}$/u,
   zip:       /^[0-9]{4,10}$/,
   name:      /^[A-Za-z0-9\s,.\-']{2,40}$/,
   cardNum:   /^[0-9]{13,19}$/,
@@ -31,6 +32,7 @@ const MESSAGES = {
   // FIX: updated message to match 10-digit rule
   phone:     "Please enter exactly 10 digits (e.g. 0612345678).",
   address:   "Please enter a valid address (5–100 characters).",
+  city:      "Please enter a valid city (2–40 characters).",
   zip:       "Please enter a valid postal code (4–10 digits).",
   name:      "Please enter a valid name.",
   cardNum:   "Card number must be 13–19 digits.",
@@ -207,6 +209,63 @@ function initLoginValidation() {
   }
 }
 
+
+// ── Order storage helpers ───────────────────────────────────────
+function getSavedOrders() {
+  return JSON.parse(localStorage.getItem("aurielle_orders") || "[]");
+}
+
+function saveOrder(order) {
+  const orders = getSavedOrders();
+  orders.unshift(order);
+  localStorage.setItem("aurielle_orders", JSON.stringify(orders));
+}
+
+function generateOrderId() {
+  const prefix = "AUR";
+  const timestamp = Date.now().toString(36).toUpperCase();
+  const random = Math.random().toString(36).substring(2, 5).toUpperCase();
+  return `${prefix}-${timestamp}-${random}`;
+}
+
+
+function showOrderSuccessModal(orderId) {
+  const overlay = document.createElement("div");
+
+  overlay.className = "modal-overlay";
+
+  overlay.innerHTML = `
+    <div class="modal-box">
+      <button class="modal-close-btn">&times;</button>
+
+      <h2>✓ Order Confirmed</h2>
+
+      <p>
+        Thank you for shopping with Aurielle.
+        Your order has been placed successfully.
+      </p>
+
+      <p><strong>Order ID:</strong> ${orderId}</p>
+    </div>
+  `;
+
+  document.body.appendChild(overlay);
+
+  function closeModal() {
+    overlay.remove();
+  }
+
+  overlay.querySelector(".modal-close-btn")
+         .addEventListener("click", closeModal);
+
+  overlay.addEventListener("click", e => {
+    if (e.target === overlay) closeModal();
+  });
+
+  setTimeout(closeModal, 6000);
+}
+
+
 // ── Order form validation ───────────────────────────────────────
 function initOrderValidation() {
   const fields = [
@@ -215,6 +274,7 @@ function initOrderValidation() {
     { inputId: "orderEmail",     rule: "email",     msgId: "orderEmailMsg"     },
     { inputId: "orderPhone",     rule: "phone",     msgId: "orderPhoneMsg"     },
     { inputId: "orderAddress",   rule: "address",   msgId: "orderAddressMsg"   },
+    { inputId: "orderCity",      rule: "city",      msgId: "orderCityMsg"      },
     { inputId: "orderZip",       rule: "zip",       msgId: "orderZipMsg"       },
     { inputId: "cardNum",        rule: "cardNum",   msgId: "cardNumMsg"        },
     { inputId: "cardExpiry",     rule: "expiry",    msgId: "cardExpiryMsg"     },
@@ -249,14 +309,52 @@ function initOrderValidation() {
       const valid = validateForm(fields);
       const alertEl = document.getElementById("orderAlert");
       if (valid) {
-        localStorage.removeItem("aurielle_cart");
-        alertEl.className = "alert success";
-        alertEl.textContent = "✓ Order placed successfully! Thank you for shopping with Aurielle.";
-        alertEl.scrollIntoView({ behavior: "smooth" });
-        orderForm.reset();
-      } else {
+
+  const cart =
+    JSON.parse(localStorage.getItem("aurielle_cart") || "[]");
+
+  const subtotal =
+    cart.reduce((sum, item) =>
+      sum + item.price * (item.qty || 1), 0);
+
+  const shipping = 700;
+
+  const total = subtotal + shipping;
+
+  const orderId = generateOrderId();
+
+  const order = {
+    id: orderId,
+    date: new Date().toISOString(),
+
+    customer: {
+      firstName: document.getElementById("orderFirstName").value.trim(),
+      lastName: document.getElementById("orderLastName").value.trim(),
+      email: document.getElementById("orderEmail").value.trim(),
+      phone: document.getElementById("orderPhone").value.trim(),
+      address: document.getElementById("orderAddress").value.trim(),
+      city: document.getElementById("orderCity").value.trim(),
+      zip: document.getElementById("orderZip").value.trim()
+    },
+
+    items: cart,
+
+    subtotal,
+    shipping,
+    total
+  };
+
+  saveOrder(order);
+
+  localStorage.removeItem("aurielle_cart");
+
+  orderForm.reset();
+
+  showOrderSuccessModal(orderId);
+}
+       else {
         alertEl.className = "alert error";
-        alertEl.textContent = "Please correct the highlighted fields before submitting.";
+        alertEl.innerHTML = "<strong>Please correct the highlighted fields.</strong> Check the red labels below and try again.";
         alertEl.scrollIntoView({ behavior: "smooth" });
       }
     });

@@ -46,10 +46,10 @@ Built with HTML5, CSS3, and vanilla JavaScript (no frameworks).
 
 ── Demo Accounts ────────────────────────────
   Email:    sihem@aurielle.com
-  Password: sihem123!
+  Password: Sihem123!
 
   Email:    admin@aurielle.com
-  Password: Admin2025!
+  Password: Admin2026!
 
 ── Technologies ─────────────────────────────
   - HTML5 (semantic tags: header, nav, main, section, article, aside, footer)
@@ -65,6 +65,6 @@ Built with HTML5, CSS3, and vanilla JavaScript (no frameworks).
    Halil lyna
 
 ── Teachers ──────────────────────────────────
-  Mme. Bousnina / Melle Moudir / Melle Yesli
-  Module: Dev App Web — L2
+  Mme. Bousnina
+  Module: Dev Web — L2
 ============================================
