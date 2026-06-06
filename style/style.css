@@ -688,3 +688,9 @@ ul  { list-style: none; }
   letter-spacing: 0.05em;
 }
 .remove-btn:hover { color: #e74c3c; }
+.product-description {
+  font-size: 0.9rem;
+  color: #562005;
+  margin: 8px 0;
+  line-height: 1.4;
+}
