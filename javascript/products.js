@@ -12,7 +12,7 @@ const PRODUCTS = [
     price: 400,
     badge: "New",
     image: "../images/ring1.png",
-    description: "null"
+    description: "It adds a refined and radiant touch to any outfit"
   },
   {
     id: 2,
@@ -28,7 +28,7 @@ const PRODUCTS = [
     id: 3,
     name: "Infinito",
     category: "necklaces",
-    material: "Yellow gold",
+    material: "Yellow Gold",
     price: 920,
     badge: "limited",
     image: "../images/collier1.png",
@@ -52,7 +52,7 @@ const PRODUCTS = [
     price: 40,
     badge: "Sale",
     image: "../images/brooche1.png",
-    description: "AESTHETIC ALERT ‼️ THESE ARE PERFECT FOR THE SUMMER ☀️💗"
+    description: "AESTHETIC ALERT THESE ARE PERFECT FOR THE SUMMER"
   },
   {
     id: 6,
@@ -112,7 +112,7 @@ const PRODUCTS = [
     price: 300,
     badge: "sale",
     image: "../images/ring3.png",
-    description: "élégante et intemporelle, elle apporte une touche de raffinement à toutes vos tenues. ✨"
+    description: "élégante et intemporelle, elle apporte une touche de raffinement à toutes vos tenues."
   },
   {
     id: 12,
@@ -147,7 +147,7 @@ const PRODUCTS = [
   {
     id: 15,
     name: "Louis Vuitton",
-    category: "braceletes",
+    category: "bracelets",
     material: "Yellow Gold",
     price: 500,
     badge: "bestseller",
@@ -162,7 +162,7 @@ const PRODUCTS = [
     price: 500,
     badge: "bestseller",
     image: "../images/ring4.png",
-    description: "Elegants et modernes"
+    description: "Inspired by grace and femininity"
   },
   {
     id: 17,
@@ -172,7 +172,7 @@ const PRODUCTS = [
     price: 99,
     badge: "bestseller",
     image: "../images/earring4.png",
-    description: "Elegants et modernes"
+    description: "Their elegant and refined silhouette adds a touch of softness and brilliance to every outfit."
   },
   {
     id: 18,
@@ -182,7 +182,7 @@ const PRODUCTS = [
     price: 220,
     badge: "bestseller",
     image: "../images/collier4.png",
-    description: "Elegants et modernes"
+    description: "The Swan Necklace is inspired by the grace and elegance of a swan. Its delicate and harmonious design makes it a refined piece that adds a touch of sophistication to your look ."
   },
   {
     id: 19,
@@ -192,77 +192,77 @@ const PRODUCTS = [
     price: 45,
     badge: null,
     image: "../images/brooche4.png",
-    description: "Elegants et modernes"
+    description: "Its delicate and elegant design brings a subtle, natural sophistication to any outfit or accessory."
   },
   {
     id: 20,
     name: "Flowers",
-    category: "braceletes",
+    category: "bracelets",
     material: "Yellow Gold",
     price: 500,
     badge: "bestseller",
     image: "../images/braclet4.png",
-    description: "Elegants et modernes"
+    description: "Its delicate and feminine design brings a fresh, elegant, and romantic touch to your wrist."
   },
   {
     id: 21,
-    name: "",
+    name: "Rosalie",
     category: "rings",
     material: "Rose Gold",
     price: 370,
     badge: "sale",
     image: "../images/ring5.png",
-    description: "Elegants et modernes"
+    description: "Embodies the softness and romance of a blooming rose. Its delicate and elegant design adds a feminine and timeless touch to your style."
   },
   {
     id: 22,
-    name: "",
+    name: "Eternal Rose",
     category: "rings",
     material: "Rose Gold",
     price: 230,
     badge: "bestseller",
     image: "../images/ring6.png",
-    description: "Elegants et modernes"
+    description: "Symbolizes eternal love and the timeless beauty of the rose."
   },
   {
     id: 23,
-    name: "",
+    name: "Pandora",
     category: "necklaces",
     material: "Yellow Gold",
     price: 420,
     badge: "bestseller",
     image: "../images/collier5.png",
-    description: "Elegants et modernes"
+    description: "Its delicate design softly enhances the neckline with a subtle touch of refinement, perfect for a chic look in everyday wear or special occasions."
   },
   {
     id: 24,
-    name: "",
+    name: "Sparkling Bloom",
     category: "brooches",
     material: "White Gold",
     price: 500,
     badge: "sale",
-    image: "../images/braclet4.png",
-    description: "Elegants et modernes"
+    image: "../images/brooche7.png",
+    description: "Evokes a flower in full radiance"
   },
   {
     id: 25,
     name: "Dior",
-    category: "braceletes",
+    category: "bracelets",
     material: "Yellow Gold",
     price: 500,
     badge: "bestseller",
     image: "../images/braclet5.png",
-    description: "Elegants et modernes"
+    description: "Embodies luxury and timeless sophistication."
   },
   {
     id: 26,
     name: "dior",
-    category: "braceletes",
+    category: "bracelets",
     material: "Yellow Gold",
     price: 500,
     badge: "bestseller",
     image: "../images/braclet6.png",
-    description: "Elegants et modernes"
+    description: "Embodies luxury and timeless sophistication."
   },
   {
     id: 27,
@@ -272,7 +272,7 @@ const PRODUCTS = [
     price: 600,
     badge: "New",
     image: "../images/brooche5.png",
-    description: "Elegants et modernes"
+    description: "Its inspired by the natural beauty of leaves. Its fine and elegant design brings an organic and refined touch that perfectly complements your outfits."
   },
   {
     id: 28,
@@ -282,7 +282,7 @@ const PRODUCTS = [
     price: 500,
     badge: "bestseller",
     image: "../images/brooche6.png",
-    description: "Elegants et modernes"
+    description: "Evokes the lightness and delicacy of a feather in motion"
   },
   {
     id: 29,
@@ -292,117 +292,117 @@ const PRODUCTS = [
     price: 700,
     badge: "new",
     image: "../images/collier6.png",
-    description: "Elegants et modernes"
+    description: "Embodies grace and royal elegance."
   },
   {
     id: 30,
-    name: "",
+    name: "Floral Star Ring",
     category: "rings",
-    material: "white Gold",
+    material: "White Gold",
     price: 500,
     badge: "bestseller",
     image: "../images/ring7.png",
-    description: "Elegants et modernes"
+    description: "Blends the beauty of flowers with the sparkle of stars."
   },
   {
     id: 31,
     name: "Pandora",
     category: "rings",
-    material: "white Gold",
+    material: "White Gold",
     price: 500,
     badge: "bestseller",
     image: "../images/ring8.png",
-    description: "Elegants et modernes"
+    description: "Embodies modern elegance and timeless finesse"
   },
    {
     id: 32,
-    name: "",
+    name: "Secret Garden Ring",
     category: "earrings",
     material: "Silver",
     price: 85,
     badge: "bestseller",
-    image: "../images/silver1.png",
-    description: "Elegants et modernes"
+    image: "../images/earring5.png",
+    description: "Evoke the hidden beauty of an enchanted garden"
   },
   {
     id: 33,
-    name: "",
+    name: "Moonlight Shine Earrings",
     category: "rings",
     material: "Platinum",
     price: 2340,
     badge: "New",
-    image: "../images/pal1.png",
-    description: "Elegants et modernes"
+    image: "../images/ring9.png",
+    description: "Reflects the softness and glow of moonlight."
   },
   {
     id: 34,
-    name: "",
+    name: "Moonlit Drop",
     category: "necklaces",
     material: "Platinum",
     price: 700,
     badge: "sale",
-    image: "../images/pal2.png",
-    description: "Elegants et modernes"
+    image: "../images/collier7.png",
+    description: "Evokes the softness of a drop illuminated by moonlight."
   },
   {
     id: 35,
-    name: "",
-    category: "braclets",
+    name: "Royal Sparkle",
+    category: "bracelets",
     material: "Silver",
     price: 500,
     badge: "New",
-    image: "../images/silver2.png",
-    description: "Elegants et modernes"
+    image: "../images/braclet8.png",
+    description: "Embodies luxury and royal brilliance."
   },
   {
     id: 36,
-    name: "",
-    category: "braclets",
+    name: "Crystal Crown",
+    category: "bracelets",
     material: "Platinum",
     price: 330,
     badge: null,
-    image: "../images/pal3.png",
-    description: "Elegants et modernes"
+    image: "../images/braclet9.png",
+    description: "Symbolizes royal elegance and crystal brilliance."
   },
   {
     id: 37,
-    name: "",
+    name: "Frost Flower",
     category: "rings",
     material: "Silver",
     price: 7800,
     badge: "New",
-    image: "../images/silver3.png",
-    description: "Elegants et modernes"
+    image: "../images/ring10.png",
+    description: "Captures the fragile beauty of a flower frozen in frost."
   },
   {
     id: 38,
-    name: "",
+    name: "Starlight Cascade",
     category: "necklaces",
     material: "Silver",
     price: 220,
     badge: null,
-    image: "../images/silver4.png",
-    description: "Elegants et modernes"
+    image: "../images/collier8.png",
+    description: "Evokes a cascade of glowing stars."
   },
   {
     id: 39,
-    name: "",
+    name: "Cystal Rain",
     category: "earrings",
     material: "Platinum",
     price: 130,
     badge: null,
-    image: "../images/pal4.png",
-    description: "Elegants et modernes"
+    image: "../images/earring6.png",
+    description: "Evoke a shower of sparkling crystals. Their elegant and radiant design adds a touch of freshness and sophistication to your style."
   },
   {
     id: 40,
-    name: "",
+    name: "Daimond Aurora",
     category: "rings",
     material: "Silver",
     price: 6100,
     badge: "NEW",
-    image: "../images/silver5.png",
-    description: "Elegants et modernes"
+    image: "../images/ring11.png",
+    description: "Captures the magic of the northern lights through the brilliance of diamonds. Its refined and radiant design creates an exceptional piece, symbolizing purity and timeless elegance."
   },
 
 ];
@@ -432,7 +432,10 @@ function renderProducts(list) {
         <div class="product-info">
           <p class="product-category">${formatCategory(p.category)}</p>
           <h3 class="product-name">${p.name}</h3>
-          <p class="product-price">${p.price.toLocaleString()} da</p>
+          <p class="product-description">
+           ${p.description || ""}
+          </p>
+         <p class="product-price">${p.price.toLocaleString()} da</p>
         </div>
       </article>
     `).join("");
