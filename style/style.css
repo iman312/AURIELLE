@@ -4,7 +4,7 @@
 
 /* ---------- CSS Variables ---------- */
 :root {
-  --black:   #9B111E;
+  --black:   #47080f;
   --white:   #faf8f4;
   --ivory:   #f2ede4;
   --gold:    #c9a84c;
@@ -305,7 +305,7 @@ ul  { list-style: none; }
    ============================================ */
 .page-hero {
   min-height: 38vh; background: var(--black);
-  display: flex; align-items: flex-end;
+  display: flex; align-items: flex-end; padding-top: 120px;
   padding-bottom: 3.5rem; position: relative; overflow: hidden;
 }
 .page-hero::before {
@@ -382,7 +382,7 @@ ul  { list-style: none; }
    AUTH PAGES (Login / Register)
    ============================================ */
 .auth-page {
-  min-height: 100vh; background: var(--black);
+  min-height: 100vh; background:linear-gradient(135deg, #f5f2f2, #070101);
   display: flex; align-items: center;
   padding: 6rem 0 4rem;
   position: relative;
@@ -395,7 +395,7 @@ ul  { list-style: none; }
 .auth-box {
   position: relative; z-index: 1;
   width: min(480px, 92%); margin: 0 auto;
-  background: rgba(255,255,255,0.03);
+  background: linear-gradient(135deg, #0b0101, #550606);
   border: 1px solid var(--border);
   padding: 3rem;
 }
@@ -584,6 +584,9 @@ ul  { list-style: none; }
 }
 
 @media (max-width: 900px) {
+  .page-hero{
+  padding-top: 170px;
+}
   .nav-links, .nav-icons, .nav-auth { display: none; }
   .nav-toggle { display: flex; }
   .products-grid, .categories-grid, .shop-grid { grid-template-columns: 1fr; }
@@ -610,6 +613,7 @@ ul  { list-style: none; }
   font-size: 18px;
   color: #e8dddd;
   cursor: pointer;
+  
 }
 
 /* dropdown search box */
@@ -1393,4 +1397,59 @@ ul  { list-style: none; }
   align-items: center;
   gap: 0.4rem;
 }
+.nav-toggle{
+  display:none;
+}
+
+.nav-toggle span{
+  display:block;
+  width:25px;
+  height:3px;
+  background:white;
+  margin:5px 0;
+}
+@media (max-width: 900px) {
+
+.nav-toggle {
+  display: flex;
+  margin-left: auto;
+  transform: translateY(-60px);
+
+}
+  .nav-links,
+  .nav-icons,
+  .nav-auth {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: rgba(0,0,0,0.95);
+    text-align: center;
+    padding: 1rem 0;
+  }
+
+  .nav-links.active,
+  .nav-icons.active,
+  .nav-auth.active {
+    display: flex;
+  }
+
+  .nav {
+    flex-direction: column;
+    align-items: flex-start;
+
+  }
+}
 .nav-orders-link:hover { color: var(--gold); }
+button,
+.btn,
+.filter-btn,
+.page-btn,
+.qty-btn,
+.remove-btn,
+.btn-delete-order,
+.btn-clear-orders {
+  border-radius: 50px;
+}
+.nav-auth a {
+  border-radius: 50px; 
+}
