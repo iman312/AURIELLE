@@ -383,7 +383,7 @@ ul  { list-style: none; }
    ============================================ */
 .auth-page {
   min-height: 100vh; 
-  background:linear-gradient(135deg, #ebe9e7, #090000);
+  background:linear-gradient(135deg, #f8f6f6,#110202);
   display: flex;
   align-items: center;
   padding: 6rem 0 4rem;
@@ -397,7 +397,7 @@ ul  { list-style: none; }
 .auth-box {
   position: relative; z-index: 1;
   width: min(480px, 92%); margin: 0 auto;
-  background:  linear-gradient(135deg, #6f1809 , #350308);
+  background:  linear-gradient(135deg, #050201 , #680b17);
   border: 1px solid var(--border);
   padding: 3rem;
 }
