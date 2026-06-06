@@ -12,7 +12,7 @@ const PRODUCTS = [
     price: 400,
     badge: "New",
     image: "../images/ring1.png",
-    description: "It adds a refined and radiant touch to any outfit"
+    
   },
   {
     id: 2,
@@ -22,7 +22,7 @@ const PRODUCTS = [
     price: 380,
     badge: "New",
     image: "../images/earring1.png",
-    description: "These White Flower Earrings Are the Prettiest Thing You'll See Today"
+
   },
   {
     id: 3,
@@ -32,7 +32,7 @@ const PRODUCTS = [
     price: 920,
     badge: "limited",
     image: "../images/collier1.png",
-    description: "Calm, minimal jewellery designed for everyday comfort"
+    
   },
   {
     id: 4,
@@ -42,7 +42,7 @@ const PRODUCTS = [
     price: 1200,
     badge: "sale",
     image: "../images/braclet1.png",
-    description: "real gold plated lucky leaf shell pearls braclet "
+    
   },
   {
     id: 5,
@@ -52,7 +52,7 @@ const PRODUCTS = [
     price: 40,
     badge: "Sale",
     image: "../images/brooche1.png",
-    description: "AESTHETIC ALERT THESE ARE PERFECT FOR THE SUMMER"
+   
   },
   {
     id: 6,
@@ -62,7 +62,7 @@ const PRODUCTS = [
     price: 3900,
     badge: "new",
     image: "../images/ring2.png",
-    description: "The perfect twist on tradition"
+    
   },
   {
     id: 7,
@@ -72,7 +72,7 @@ const PRODUCTS = [
     price: 170,
     badge: "New",
     image: "../images/earring2.png",
-    description: "Multicolorido Elegante Collar Volume Pino Embellished Jóias"
+   
   },
   {
     id: 8,
@@ -82,7 +82,6 @@ const PRODUCTS = [
     price: 500,
     badge: "bestsaller",
     image: "../images/collier2.png",
-    description: " Discover elegant pearl necklaces and delicate jewelry pieces perfect for a chic minimalist look"
   },
   {
     id: 9,
@@ -92,7 +91,7 @@ const PRODUCTS = [
     price: 150,
     badge: "limited",
     image: "../images/braclet2.png",
-    description: "Gold Clover & Nail & love Bracelet Set."
+    
   },
   {
     id: 10,
@@ -102,7 +101,7 @@ const PRODUCTS = [
     price: 80,
     badge: null,
     image: "../images/brooche2.png",
-    description: "Elegant White Embellished Hair Clip"
+   
   },
   {
     id: 11,
@@ -112,7 +111,7 @@ const PRODUCTS = [
     price: 300,
     badge: "sale",
     image: "../images/ring3.png",
-    description: "élégante et intemporelle, elle apporte une touche de raffinement à toutes vos tenues."
+     
   },
   {
     id: 12,
@@ -122,7 +121,7 @@ const PRODUCTS = [
     price: 240,
     badge: "Bestseller",
     image: "../images/earring3.png",
-    description: "Retro starfish stud earrings with pearls and rhinestones, elegant and delicate"
+    
   },
   {
     id: 13,
@@ -132,7 +131,7 @@ const PRODUCTS = [
     price: 240,
     badge: "limited",
     image: "../images/collier3.png",
-    description: "gold-plated layered star pendant necklace with a chic, elegant, and modern look"
+    
   },
   {
     id: 14,
@@ -142,7 +141,7 @@ const PRODUCTS = [
     price: 40,
     badge: null,
     image: "../images/brooche3.png",
-    description: "Broche élégante en strass, idéale pour bouquets, robes et vêtements, au style chic et tendance"
+
   },
   {
     id: 15,
@@ -152,7 +151,7 @@ const PRODUCTS = [
     price: 500,
     badge: "bestseller",
     image: "../images/braclet3.png",
-    description: "Elegants et modernes"
+   
   },
   {
     id: 16,
@@ -162,7 +161,7 @@ const PRODUCTS = [
     price: 500,
     badge: "bestseller",
     image: "../images/ring4.png",
-    description: "Inspired by grace and femininity"
+   
   },
   {
     id: 17,
@@ -172,7 +171,7 @@ const PRODUCTS = [
     price: 99,
     badge: "bestseller",
     image: "../images/earring4.png",
-    description: "Their elegant and refined silhouette adds a touch of softness and brilliance to every outfit."
+    
   },
   {
     id: 18,
@@ -182,7 +181,7 @@ const PRODUCTS = [
     price: 220,
     badge: "bestseller",
     image: "../images/collier4.png",
-    description: "The Swan Necklace is inspired by the grace and elegance of a swan. Its delicate and harmonious design makes it a refined piece that adds a touch of sophistication to your look ."
+ 
   },
   {
     id: 19,
@@ -192,7 +191,7 @@ const PRODUCTS = [
     price: 45,
     badge: null,
     image: "../images/brooche4.png",
-    description: "Its delicate and elegant design brings a subtle, natural sophistication to any outfit or accessory."
+    
   },
   {
     id: 20,
@@ -202,7 +201,7 @@ const PRODUCTS = [
     price: 500,
     badge: "bestseller",
     image: "../images/braclet4.png",
-    description: "Its delicate and feminine design brings a fresh, elegant, and romantic touch to your wrist."
+    
   },
   {
     id: 21,
@@ -212,7 +211,7 @@ const PRODUCTS = [
     price: 370,
     badge: "sale",
     image: "../images/ring5.png",
-    description: "Embodies the softness and romance of a blooming rose. Its delicate and elegant design adds a feminine and timeless touch to your style."
+
   },
   {
     id: 22,
@@ -222,7 +221,7 @@ const PRODUCTS = [
     price: 230,
     badge: "bestseller",
     image: "../images/ring6.png",
-    description: "Symbolizes eternal love and the timeless beauty of the rose."
+   
   },
   {
     id: 23,
@@ -232,7 +231,7 @@ const PRODUCTS = [
     price: 420,
     badge: "bestseller",
     image: "../images/collier5.png",
-    description: "Its delicate design softly enhances the neckline with a subtle touch of refinement, perfect for a chic look in everyday wear or special occasions."
+
   },
   {
     id: 24,
@@ -242,7 +241,7 @@ const PRODUCTS = [
     price: 500,
     badge: "sale",
     image: "../images/brooche7.png",
-    description: "Evokes a flower in full radiance"
+    
   },
   {
     id: 25,
@@ -252,7 +251,7 @@ const PRODUCTS = [
     price: 500,
     badge: "bestseller",
     image: "../images/braclet5.png",
-    description: "Embodies luxury and timeless sophistication."
+   
   },
   {
     id: 26,
@@ -262,7 +261,7 @@ const PRODUCTS = [
     price: 500,
     badge: "bestseller",
     image: "../images/braclet6.png",
-    description: "Embodies luxury and timeless sophistication."
+    
   },
   {
     id: 27,
@@ -272,7 +271,7 @@ const PRODUCTS = [
     price: 600,
     badge: "New",
     image: "../images/brooche5.png",
-    description: "Its inspired by the natural beauty of leaves. Its fine and elegant design brings an organic and refined touch that perfectly complements your outfits."
+  
   },
   {
     id: 28,
@@ -282,7 +281,7 @@ const PRODUCTS = [
     price: 500,
     badge: "bestseller",
     image: "../images/brooche6.png",
-    description: "Evokes the lightness and delicacy of a feather in motion"
+   
   },
   {
     id: 29,
@@ -292,7 +291,6 @@ const PRODUCTS = [
     price: 700,
     badge: "new",
     image: "../images/collier6.png",
-    description: "Embodies grace and royal elegance."
   },
   {
     id: 30,
@@ -302,7 +300,7 @@ const PRODUCTS = [
     price: 500,
     badge: "bestseller",
     image: "../images/ring7.png",
-    description: "Blends the beauty of flowers with the sparkle of stars."
+   
   },
   {
     id: 31,
@@ -312,7 +310,7 @@ const PRODUCTS = [
     price: 500,
     badge: "bestseller",
     image: "../images/ring8.png",
-    description: "Embodies modern elegance and timeless finesse"
+   
   },
    {
     id: 32,
@@ -322,7 +320,7 @@ const PRODUCTS = [
     price: 85,
     badge: "bestseller",
     image: "../images/earring5.png",
-    description: "Evoke the hidden beauty of an enchanted garden"
+   
   },
   {
     id: 33,
@@ -332,7 +330,7 @@ const PRODUCTS = [
     price: 2340,
     badge: "New",
     image: "../images/ring9.png",
-    description: "Reflects the softness and glow of moonlight."
+    
   },
   {
     id: 34,
@@ -342,7 +340,6 @@ const PRODUCTS = [
     price: 700,
     badge: "sale",
     image: "../images/collier7.png",
-    description: "Evokes the softness of a drop illuminated by moonlight."
   },
   {
     id: 35,
@@ -352,7 +349,7 @@ const PRODUCTS = [
     price: 500,
     badge: "New",
     image: "../images/braclet8.png",
-    description: "Embodies luxury and royal brilliance."
+
   },
   {
     id: 36,
@@ -362,7 +359,7 @@ const PRODUCTS = [
     price: 330,
     badge: null,
     image: "../images/braclet9.png",
-    description: "Symbolizes royal elegance and crystal brilliance."
+    
   },
   {
     id: 37,
@@ -372,7 +369,7 @@ const PRODUCTS = [
     price: 7800,
     badge: "New",
     image: "../images/ring10.png",
-    description: "Captures the fragile beauty of a flower frozen in frost."
+   
   },
   {
     id: 38,
@@ -382,7 +379,7 @@ const PRODUCTS = [
     price: 220,
     badge: null,
     image: "../images/collier8.png",
-    description: "Evokes a cascade of glowing stars."
+   
   },
   {
     id: 39,
@@ -392,7 +389,7 @@ const PRODUCTS = [
     price: 130,
     badge: null,
     image: "../images/earring6.png",
-    description: "Evoke a shower of sparkling crystals. Their elegant and radiant design adds a touch of freshness and sophistication to your style."
+    
   },
   {
     id: 40,
@@ -402,7 +399,7 @@ const PRODUCTS = [
     price: 6100,
     badge: "NEW",
     image: "../images/ring11.png",
-    description: "Captures the magic of the northern lights through the brilliance of diamonds. Its refined and radiant design creates an exceptional piece, symbolizing purity and timeless elegance."
+
   },
 
 ];

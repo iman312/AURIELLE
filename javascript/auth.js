@@ -168,3 +168,26 @@ document.addEventListener("DOMContentLoaded", () => {
   if (loginForm)    loginForm.addEventListener("submit", handleLoginSubmit);
   if (registerForm) registerForm.addEventListener("submit", handleRegisterSubmit);
 });
+document.addEventListener("DOMContentLoaded", () => {
+  const btn = document.querySelector(".nav-toggle");
+  const links = document.querySelector(".nav-links");
+  const icons = document.querySelector(".nav-icons");
+  const auth = document.querySelector(".nav-auth");
+
+  if (!btn || !links || !auth) return;
+
+  btn.addEventListener("click", () => {
+    links.classList.toggle("active");
+    auth.classList.toggle("active");
+    if (icons) icons.classList.toggle("active");
+  });
+});
+document.querySelectorAll(".nav-links a").forEach(link => {
+  link.addEventListener("click", () => {
+
+    document.querySelector(".nav-links")?.classList.remove("active");
+    document.querySelector(".nav-auth")?.classList.remove("active");
+    document.querySelector(".nav-icons")?.classList.remove("active");
+
+  });
+});
