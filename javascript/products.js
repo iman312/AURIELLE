@@ -52,7 +52,7 @@ const PRODUCTS = [
     price: 40,
     badge: "Sale",
     image: "../images/brooche1.png",
-    description: "AESTHETIC ALERT ‼️ THESE ARE PERFECT FOR THE SUMMER ☀️💗"
+    description: "AESTHETIC ALERT THESE ARE PERFECT FOR THE SUMMER"
   },
   {
     id: 6,
@@ -112,7 +112,7 @@ const PRODUCTS = [
     price: 300,
     badge: "sale",
     image: "../images/ring3.png",
-    description: "élégante et intemporelle, elle apporte une touche de raffinement à toutes vos tenues. ✨"
+    description: "élégante et intemporelle, elle apporte une touche de raffinement à toutes vos tenues."
   },
   {
     id: 12,
@@ -182,7 +182,7 @@ const PRODUCTS = [
     price: 220,
     badge: "bestseller",
     image: "../images/collier4.png",
-    description: "The Swan Necklace is inspired by the grace and elegance of a swan. Its delicate and harmonious design makes it a refined piece that adds a touch of sophistication to your look 🦢."
+    description: "The Swan Necklace is inspired by the grace and elegance of a swan. Its delicate and harmonious design makes it a refined piece that adds a touch of sophistication to your look ."
   },
   {
     id: 19,
