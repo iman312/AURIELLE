@@ -354,7 +354,7 @@ function initOrderValidation() {
 }
        else {
         alertEl.className = "alert error";
-        alertEl.textContent = "Please correct the highlighted fields before submitting.";
+        alertEl.innerHTML = "<strong>Please correct the highlighted fields.</strong> Check the red labels below and try again.";
         alertEl.scrollIntoView({ behavior: "smooth" });
       }
     });
