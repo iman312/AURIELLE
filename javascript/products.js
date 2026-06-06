@@ -432,7 +432,7 @@ function renderProducts(list) {
         <div class="product-info">
           <p class="product-category">${formatCategory(p.category)}</p>
           <h3 class="product-name">${p.name}</h3>
-          <p class="product-price">$${p.price.toLocaleString()}</p>
+          <p class="product-price">${p.price.toLocaleString()} da</p>
         </div>
       </article>
     `).join("");
