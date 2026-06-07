@@ -9,7 +9,7 @@ const PRODUCTS = [
     name: "Infinito",
     category: "rings",
     material: "Yellow Gold",
-    price: 400,
+    price: 500,
     badge: "New",
     image: "../images/ring1.png",
     
@@ -19,7 +19,7 @@ const PRODUCTS = [
     name: "Five-petal Hibiscus Flower",
     category: "earrings",
     material: "White Gold",
-    price: 380,
+    price: 750,
     badge: "New",
     image: "../images/earring1.png",
 
@@ -29,7 +29,7 @@ const PRODUCTS = [
     name: "Infinito",
     category: "necklaces",
     material: "Yellow Gold",
-    price: 920,
+    price: 1800,
     badge: "limited",
     image: "../images/collier1.png",
     
@@ -49,7 +49,7 @@ const PRODUCTS = [
     name: "Piranha Flora",
     category: "brooches",
     material: "Rose Gold",
-    price: 40,
+    price: 800,
     badge: "Sale",
     image: "../images/brooche1.png",
    
@@ -59,7 +59,7 @@ const PRODUCTS = [
     name: "Gold wedding ring",
     category: "rings",
     material: "Yellow Gold",
-    price: 3900,
+    price: 2500,
     badge: "new",
     image: "../images/ring2.png",
     
@@ -69,7 +69,7 @@ const PRODUCTS = [
     name: "Bow Earrings",
     category: "earrings",
     material: "Yellow Gold",
-    price: 170,
+    price: 400,
     badge: "New",
     image: "../images/earring2.png",
    
@@ -79,7 +79,7 @@ const PRODUCTS = [
     name: "Ocean Carle",
     category: "necklaces",
     material: "Yellow Gold",
-    price: 500,
+    price: 1200,
     badge: "bestsaller",
     image: "../images/collier2.png",
   },
@@ -88,7 +88,7 @@ const PRODUCTS = [
     name: "Elegant Gold Bracelet Collection",
     category: "bracelets",
     material: "Yellow Gold",
-    price: 150,
+    price: 2800,
     badge: "limited",
     image: "../images/braclet2.png",
     
@@ -98,7 +98,7 @@ const PRODUCTS = [
     name: "Floral Elegance",
     category: "brooches",
     material: "White Gold",
-    price: 80,
+    price: 150,
     badge: null,
     image: "../images/brooche2.png",
    
@@ -118,7 +118,7 @@ const PRODUCTS = [
     name: "Pearl Starfish Chic",
     category: "earrings",
     material: "Yellow Gold",
-    price: 240,
+    price: 700,
     badge: "Bestseller",
     image: "../images/earring3.png",
     
@@ -128,7 +128,7 @@ const PRODUCTS = [
     name: "Gold Star Layer Necklace",
     category: "necklaces",
     material: "Yellow Gold",
-    price: 240,
+    price: 1300,
     badge: "limited",
     image: "../images/collier3.png",
     
@@ -138,7 +138,7 @@ const PRODUCTS = [
     name: "Broche Rose Chic Strass",
     category: "brooches",
     material: "Rose Gold",
-    price: 40,
+    price: 500,
     badge: null,
     image: "../images/brooche3.png",
 
@@ -148,7 +148,7 @@ const PRODUCTS = [
     name: "Louis Vuitton",
     category: "bracelets",
     material: "Yellow Gold",
-    price: 500,
+    price: 3200,
     badge: "bestseller",
     image: "../images/braclet3.png",
    
@@ -158,7 +158,7 @@ const PRODUCTS = [
     name: "Pandora",
     category: "rings",
     material: "Rose Gold",
-    price: 500,
+    price: 1000,
     badge: "bestseller",
     image: "../images/ring4.png",
    
@@ -168,7 +168,7 @@ const PRODUCTS = [
     name: "Tears",
     category: "earrings",
     material: "Yellow Gold",
-    price: 99,
+    price: 200,
     badge: "bestseller",
     image: "../images/earring4.png",
     
@@ -178,7 +178,7 @@ const PRODUCTS = [
     name: "Swan",
     category: "necklaces",
     material: "Rose Gold",
-    price: 220,
+    price: 1000,
     badge: "bestseller",
     image: "../images/collier4.png",
  
@@ -188,7 +188,7 @@ const PRODUCTS = [
     name: "Leaf",
     category: "brooches",
     material: "White Gold",
-    price: 45,
+    price: 150,
     badge: null,
     image: "../images/brooche4.png",
     
@@ -198,7 +198,7 @@ const PRODUCTS = [
     name: "Flowers",
     category: "bracelets",
     material: "Yellow Gold",
-    price: 500,
+    price: 300,
     badge: "bestseller",
     image: "../images/braclet4.png",
     
@@ -208,7 +208,7 @@ const PRODUCTS = [
     name: "Rosalie",
     category: "rings",
     material: "Rose Gold",
-    price: 370,
+    price: 250,
     badge: "sale",
     image: "../images/ring5.png",
 
@@ -228,7 +228,7 @@ const PRODUCTS = [
     name: "Pandora",
     category: "necklaces",
     material: "Yellow Gold",
-    price: 420,
+    price: 1700,
     badge: "bestseller",
     image: "../images/collier5.png",
 
@@ -248,7 +248,7 @@ const PRODUCTS = [
     name: "Dior",
     category: "bracelets",
     material: "Yellow Gold",
-    price: 500,
+    price: 1350,
     badge: "bestseller",
     image: "../images/braclet5.png",
    
@@ -258,7 +258,7 @@ const PRODUCTS = [
     name: "dior",
     category: "bracelets",
     material: "Yellow Gold",
-    price: 500,
+    price: 2600,
     badge: "bestseller",
     image: "../images/braclet6.png",
     
@@ -268,7 +268,7 @@ const PRODUCTS = [
     name: "Feuilles",
     category: "brooches",
     material: "White Gold",
-    price: 600,
+    price: 450,
     badge: "New",
     image: "../images/brooche5.png",
   
@@ -278,7 +278,7 @@ const PRODUCTS = [
     name: "Plume",
     category: "brooches",
     material: "Yellow Gold",
-    price: 500,
+    price: 350,
     badge: "bestseller",
     image: "../images/brooche6.png",
    
@@ -288,7 +288,7 @@ const PRODUCTS = [
     name: "Princesse",
     category: "necklaces",
     material: "Rose Gold",
-    price: 700,
+    price: 2200,
     badge: "new",
     image: "../images/collier6.png",
   },
@@ -297,7 +297,7 @@ const PRODUCTS = [
     name: "Floral Star Ring",
     category: "rings",
     material: "White Gold",
-    price: 500,
+    price: 400,
     badge: "bestseller",
     image: "../images/ring7.png",
    
@@ -307,7 +307,7 @@ const PRODUCTS = [
     name: "Pandora",
     category: "rings",
     material: "White Gold",
-    price: 500,
+    price: 1100,
     badge: "bestseller",
     image: "../images/ring8.png",
    
@@ -317,7 +317,7 @@ const PRODUCTS = [
     name: "Secret Garden Ring",
     category: "earrings",
     material: "Silver",
-    price: 85,
+    price: 200,
     badge: "bestseller",
     image: "../images/earring5.png",
    
@@ -337,7 +337,7 @@ const PRODUCTS = [
     name: "Moonlit Drop",
     category: "necklaces",
     material: "Platinum",
-    price: 700,
+    price: 820,
     badge: "sale",
     image: "../images/collier7.png",
   },
@@ -346,7 +346,7 @@ const PRODUCTS = [
     name: "Royal Sparkle",
     category: "bracelets",
     material: "Silver",
-    price: 500,
+    price: 1200,
     badge: "New",
     image: "../images/braclet8.png",
 
@@ -356,7 +356,7 @@ const PRODUCTS = [
     name: "Crystal Crown",
     category: "bracelets",
     material: "Platinum",
-    price: 330,
+    price: 640,
     badge: null,
     image: "../images/braclet9.png",
     
@@ -366,7 +366,7 @@ const PRODUCTS = [
     name: "Frost Flower",
     category: "rings",
     material: "Silver",
-    price: 7800,
+    price: 800,
     badge: "New",
     image: "../images/ring10.png",
    
@@ -376,7 +376,7 @@ const PRODUCTS = [
     name: "Starlight Cascade",
     category: "necklaces",
     material: "Silver",
-    price: 220,
+    price: 880,
     badge: null,
     image: "../images/collier8.png",
    
@@ -386,7 +386,7 @@ const PRODUCTS = [
     name: "Cystal Rain",
     category: "earrings",
     material: "Platinum",
-    price: 130,
+    price: 1250,
     badge: null,
     image: "../images/earring6.png",
     
@@ -396,7 +396,7 @@ const PRODUCTS = [
     name: "Daimond Aurora",
     category: "rings",
     material: "Silver",
-    price: 6100,
+    price: 650,
     badge: "NEW",
     image: "../images/ring11.png",
 
