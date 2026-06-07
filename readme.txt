@@ -5,37 +5,43 @@
 
 ── Description ─────────────────────────────
 A mini e-commerce website for a fine jewelry brand called AURIELLE.
-Built with HTML5, CSS3, and vanilla JavaScript (no frameworks).
+Built with HTML5, CSS3, and vanilla JavaScript .
 
 ── Features ────────────────────────────────
   ✓ Home page with hero, featured products, categories
-  ✓ Products page with client-side category filtering (no page reload)
+  ✓ Products page with client-side category & material filtering
   ✓ Product data stored in a JavaScript array (products.js)
   ✓ Registration page with real-time form validation (RegEx)
   ✓ Login page with simulated authentication
   ✓ User session stored in localStorage
-  ✓ Order/Checkout page with cart summary and payment form
+  ✓ Order/Checkout page with cart summary, qty controls & payment form
+  ✓ Order history page listing all past orders (orders.html)
+  ✓ Success modal popup on order confirmation
   ✓ Responsive design (mobile, tablet, desktop)
   ✓ Semantic HTML5 tags throughout
-  ✓ Separate HTML, CSS, and JavaScript files
+  ✓ Fully separated HTML, CSS, and JavaScript files
 
 ── Project Structure ────────────────────────
-  aurielle/
-  ├── index.html              ← Home page
+  AURIELLE/
+  ├── index.html                  ← Home page
   ├── content/
-  │   ├── products.html       ← Shop / Products page
-  │   ├── register.html       ← Registration page
-  │   ├── login.html          ← Login page
-  │   └── order.html          ← Order / Checkout page
+  │   ├── products.html           ← Shop / Products page
+  │   ├── register.html           ← Registration page
+  │   ├── login.html              ← Login page
+  │   ├── order.html              ← Order / Checkout page
+  │   └── orders.html             ← Order history page
   ├── style/
-  │   └── style.css           ← Global stylesheet
+  │   └── style.css               ← Global stylesheet
   ├── javascript/
-  │   ├── products.js         ← Product data + dynamic rendering + filtering
-  │   ├── auth.js             ← Simulated authentication + localStorage session
-  │   └── validation.js       ← RegEx form validation for all forms
+  │   ├── products.js             ← Product data + rendering + filtering
+  │   ├── auth.js                 ← Authentication + localStorage session
+  │   ├── order.js                ← Cart rendering + qty controls
+  │   └── validation.js           ← RegEx form validation + order saving
   ├── images/
-  │   └── logo.png            ← Brand logo
-  └── readme.txt              ← This file
+  │   └── logo.png                ← Brand logo (+ all product images)
+       └── products.png           ← all product images
+  ├── videos/                     ← Hero video assets
+  └── readme.txt                  ← This file
 
 ── How to Use ──────────────────────────────
   1. Open index.html in any modern browser.
@@ -43,6 +49,7 @@ Built with HTML5, CSS3, and vanilla JavaScript (no frameworks).
   3. To test login, use the demo credentials shown on the login page.
   4. Products can be added to cart from the Shop page (hover → "Add to Order").
   5. Cart items appear on the Order page, loaded from localStorage.
+  6. After placing an order, view it on the Order History page.
 
 ── Demo Accounts ────────────────────────────
   Email:    sihem@aurielle.com
@@ -59,12 +66,13 @@ Built with HTML5, CSS3, and vanilla JavaScript (no frameworks).
   - Font Awesome 6 (icons)
 
 ── Group Members ────────────────────────────
-   Ramdani sihem
-   Makhloufi lynda
-   Halil romaissa
-   Halil lyna
+  Ramdani sihem
+  Makhloufi lynda
+  Halil romaissa
+  Halil lyna
 
-── Teachers ──────────────────────────────────
+── Teachers ─────────────────────────────────
   Mme. Bousnina
   Module: Dev Web — L2
+
 ============================================

@@ -430,7 +430,7 @@ ul  { list-style: none; }
   font-size: 0.7rem; margin-top: 0.4rem;
   display: none; letter-spacing: 0.05em;
 }
-.field-msg.error { color: rgb(0, 0, 0); display: block; }
+.field-msg.error { color: rgb(240, 209, 209); display: block; }
 .field-msg.success { color: var(--green); display: block; }
 
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
