@@ -493,6 +493,17 @@ function initCategoryButtons() {
   });
 }
 
+applyFilters();
+    initCategoryButtons();
+
+    // ADD THIS:
+    const params = new URLSearchParams(window.location.search);
+    const cat = params.get("cat");
+    if (cat) {
+      const btn = document.querySelector(`.filter-btn[data-cat="${cat}"]`);
+      if (btn) btn.click();
+    }
+
 // ── Cart helpers ─────────────────────────────────────────────────
 function getCart() {
   return JSON.parse(localStorage.getItem("aurielle_cart") || "[]");

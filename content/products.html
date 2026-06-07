@@ -97,6 +97,8 @@
     </div>
   </div>
 
+  
+
 
   <!-- ── SHOP LAYOUT ────────────────────────────────────────── -->
   <section class="shop">
@@ -197,7 +199,7 @@
         <div class="footer-col">
           <h4>Contact</h4>
           <div class="footer-contact-item"><i class="fa-regular fa-envelope"></i><span>hello@aurielle.com</span></div>
-          <div class="footer-contact-item"><i class="fa-regular fa-phone"></i><span>+1 (800) 555-0192</span></div>
+          <div class="footer-contact-item"><i class="fa-regular fa-phone"></i><span>+213-555-019-542</span></div>
         </div>
       </div>
       <div class="footer-bottom">
@@ -211,7 +213,7 @@
   <script src="../javascript/auth.js"></script>
   <script src="../javascript/validation.js"></script>
 
-  <script>s
+  <script>
     // Sync second count display
     const obs = new MutationObserver(() => {
       const c2 = document.getElementById("productCount2");
@@ -231,15 +233,7 @@
       });
     });
 
-    // Read ?cat= from URL and pre-select filter
-    window.addEventListener("DOMContentLoaded", () => {
-      const params = new URLSearchParams(window.location.search);
-      const cat = params.get("cat");
-      if (cat) {
-        const btn = document.querySelector(`.filter-btn[data-cat="${cat}"]`);
-        if (btn) btn.click();
-      }
-    });
+  
   </script>
 
 </body>
